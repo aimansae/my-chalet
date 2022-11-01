@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import ChaletOption, SelectChalet
 
-# Register your models here.
+
+@admin.register(ChaletOption)
+class ChaletOptionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price')

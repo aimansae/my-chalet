@@ -14,7 +14,7 @@ class ChaletOption(models.Model):
 
     def __str__(self):
         '''Returns chalets name and relative price'''
-        return str(self.name) + ": $" + str(self.price)
+        return self.name
 
 
 class SelectChalet(models.Model):
