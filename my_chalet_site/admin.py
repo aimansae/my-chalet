@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import ChaletOption, SelectChalet
+from .models import ChaletList, SelectChalet
 
 
-@admin.register(ChaletOption)
-class ChaletOptionAdmin(admin.ModelAdmin):
+@admin.register(ChaletList)
+class ChaletListAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
 
 

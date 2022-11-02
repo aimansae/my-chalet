@@ -1,7 +1,12 @@
 from django.shortcuts import render
-from .models import ChaletOption, SelectChalet
+from .models import ChaletList, SelectChalet
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'home.html')
+    '''Shows homepage'''
+    chalet_list = ChaletList.objects.all()
+    context = {
+        'chalet_list': chalet_list
+    }
+    return render(request, 'home.html', context)
