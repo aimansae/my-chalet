@@ -2,13 +2,30 @@
 
 {% block content %}
 
-    <h2>Chalet List</h2>
-
+<h1>Welcome to my chalet</h1>
+<h2>On my chalet we selected the best and most exclusive chalets you can choose for 1 nigh rxperience; Here are the options:</h2>
+<div class="container">
     {% for chalet in chalet_list %}
-        {{ chalet.name }}:<br>
-        Location: {{ chalet.location }}<br>
-        Image: {{ chalet.C }}:<br>
-        Price: {{ chalet.price }}<br><br>
+    {% if forloop.counter0|divisibleby:3 %} <div class="row"> {% endif %}
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img class="card-img-top image-responsive" src="..." alt="Card image cap">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-uppercase">Card title</h5>
+                    <p class="card-text">{{ chalet.description }}This is a longer card with supporting text below as a
+                        natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="card-body">
+                        <strong class="card-link">Price: {{ chalet.price }}</strong>
+                        <a href="{% url 'description' chalet.id %}" class="btn btn-primary mt-auto align-self-center">Reserve: {{ chalet.price }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 or forloop.last %} <!--CHECK-->
+    </div><br>{% endif %}
     {% endfor %}
+
+</div>
 
 {% endblock %}
