@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, View
 from .models import ChaletList, SelectChalet
 # from django.views.generic import View
@@ -14,10 +14,14 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-class ChooseChalet(View):
-    '''show selected chalet view'''
-def get(self, request, route_id, *args, **kwargs):
-    queryset = SelectChalet.objects.all()
-    chalet = get_object_or_404(queryset, id=chalet_id)
+class ChaletDetail(View):
+    '''show details about selected chalet'''
 
-    return render(request, 'description.html')
+    def get(self, request, chalet_id, *args, **kwargs):
+        # queryset = SelectChalet.objects.all()
+        chalet = ChaletList.objects.get(pk=chalet_id)
+        
+        context = {
+            'chalet': chalet
+        }
+        return render(request, 'chalet_detail.html', context)

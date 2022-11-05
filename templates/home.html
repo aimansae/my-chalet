@@ -11,13 +11,13 @@
             <div class="card h-100">
                 <img class="card-img-top image-responsive" src="..." alt="Card image cap">
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-uppercase">Card title</h5>
+                    <h5 class="card-title text-uppercase">{{chalet_list.name}}</h5>
                     <p class="card-text">{{ chalet.description }}This is a longer card with supporting text below as a
                         natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <div class="card-body">
                         <strong class="card-link">Price: {{ chalet.price }}</strong>
-                        <a href="{% url 'description' chalet.id %}" class="btn btn-primary mt-auto align-self-center">Reserve: {{ chalet.price }}</a>
+                    <div class="card-body">
+                        
+                    <a href="{% url 'chalet_detail' chalet.id %}" class="btn btn-primary float-right">Reserve</a> 
                     </div>
                 </div>
             </div>
