@@ -18,10 +18,11 @@ class ChaletDetail(View):
     '''show details about selected chalet'''
 
     def get(self, request, chalet_id, *args, **kwargs):
-        # queryset = SelectChalet.objects.all()
-        chalet = ChaletList.objects.get(pk=chalet_id)
-        
+        queryset = SelectChalet.objects.all()
+        #chalet = ChaletList.objects.get(pk=chalet_id)
+        chalet = get_object_or_404(queryset, pk=chalet_id)
         context = {
-            'chalet': chalet
+            'chalet': chalet,
+
         }
         return render(request, 'chalet_detail.html', context)
