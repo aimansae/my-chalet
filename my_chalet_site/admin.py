@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ChaletList, SelectChalet
+from .models import ChaletList, SelectChalet, MakeReservation
 
 
 @admin.register(ChaletList)
@@ -9,5 +9,8 @@ class ChaletListAdmin(admin.ModelAdmin):
 
 @admin.register(SelectChalet)
 class SelectChaletAdmin(admin.ModelAdmin):
-    list_display = ('name', 'location', 'price', 'description',
-                    'capacity', 'selected_date',)
+    list_display = ('name', 'location', 'price', 'description',)
+
+@admin.register(MakeReservation)
+class MakeReservationAdmin(admin.ModelAdmin):
+    list_display = ('user', 'capacity', 'date')

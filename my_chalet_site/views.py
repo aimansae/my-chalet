@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, View
 from .models import ChaletList, SelectChalet
+from .forms import ReservationForm
 # from django.views.generic import View
 # Create your views here.
 
@@ -26,3 +27,13 @@ class ChaletDetail(View):
 
         }
         return render(request, 'chalet_detail.html', context)
+
+
+def reservation(view):
+    '''show form to send reservation request'''
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form': form, }
+    return render(request, 'reservation.html', context)
