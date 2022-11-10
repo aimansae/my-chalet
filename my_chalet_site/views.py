@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, View
-from .models import ChaletList, SelectChalet
+from django.contrib import messages
+from .models import *  # ChaletList, SelectChalet
 from .forms import ReservationForm
+from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 # from django.views.generic import View
 # Create your views here.
 
@@ -20,7 +22,7 @@ class ChaletDetail(View):
 
     def get(self, request, chalet_id, *args, **kwargs):
         queryset = SelectChalet.objects.all()
-        #chalet = ChaletList.objects.get(pk=chalet_id)
+        # or chalet = ChaletList.objects.get(pk=chalet_id)
         chalet = get_object_or_404(queryset, pk=chalet_id)
         context = {
             'chalet': chalet,
@@ -32,11 +34,16 @@ class ChaletDetail(View):
 def reservation(request, chalet_id):
 
     chalet = SelectChalet.objects.get(pk=chalet_id)
-    '''show form to send reservation request'''
+    '''show form to make a reservation request'''
     form = ReservationForm()
     if request.method == 'POST':
+        print('Testing', request.POST)
+        form = ReservationForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(
+                request, ('Thank you, your reservation request is submitted!!'))
+            return redirect('home') # need to craye a my booking page
     context = {'form': form,
                'chalet': chalet,
                }

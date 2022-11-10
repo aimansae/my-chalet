@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'bootstrap_datepicker_plus',
     'my_chalet_site',
 ]
 
@@ -148,3 +149,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DATE_FORMAT = "d/m/Y"
+#DATE_INPUT_FORMATS = ['%d/%m/%Y']
+USE_L10N = False
