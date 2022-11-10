@@ -29,11 +29,15 @@ class ChaletDetail(View):
         return render(request, 'chalet_detail.html', context)
 
 
-def reservation(view):
+def reservation(request, chalet_id):
+
+    chalet = SelectChalet.objects.get(pk=chalet_id)
     '''show form to send reservation request'''
+    form = ReservationForm()
     if request.method == 'POST':
-        form = ReservationForm(request.POST)
         if form.is_valid():
             form.save()
-    context = {'form': form, }
+    context = {'form': form,
+               'chalet': chalet,
+               }
     return render(request, 'reservation.html', context)

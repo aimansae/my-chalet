@@ -32,6 +32,7 @@ class SelectChalet(models.Model):
         ChaletList, on_delete=models.CASCADE, blank=False, null=True, related_name='choose_chalet')
     location = models.CharField(
         max_length=150, default='location', blank=False)
+    # make it float field models.FloatField
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     description = models.TextField(default='description', blank=False)
     #selected_date = models.DateField()
@@ -55,6 +56,10 @@ class MakeReservation(models.Model):
         User, on_delete=models.CASCADE, null=True, default=None, related_name='user_booking',
 
     ) #to remove null=True, default=None LATER
+    fname=models.CharField(
+        'First Name', max_length=150, blank=False)
+    lname = models.CharField(
+        'Last Name', max_length=150, blank=False)
     email = models.EmailField(unique=True, null=True)
     phone = models.IntegerField(unique=True, null=True)
     capacity = models.CharField(
