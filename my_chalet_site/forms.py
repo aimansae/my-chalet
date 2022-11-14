@@ -1,7 +1,6 @@
 from . models import MakeReservation
 from django import forms
 from django.forms import ModelForm
-#from bootstrap_datepicker_plus import DatePickerInput
 
 
 # for dateinput:

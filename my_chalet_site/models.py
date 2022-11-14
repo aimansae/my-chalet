@@ -56,7 +56,7 @@ class MakeReservation(models.Model):
     def validation(date):
         if date < timezone.now().date():
             raise ValidationError("Date cannot be in the past")
-        elif date==  timezone.now().date():
+        elif date == timezone.now().date():
             raise ValidationError("Date cannot be today")
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, default=None, related_name='user_booking',

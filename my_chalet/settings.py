@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'bootstrap_datepicker_plus',
     'my_chalet_site',
 ]
 
