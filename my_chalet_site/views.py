@@ -3,7 +3,6 @@ from django.views.generic import ListView, View
 from django.contrib import messages
 from .models import *  # ChaletList, SelectChalet
 from .forms import ReservationForm
-from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 # from django.views.generic import View
 # Create your views here.
 
