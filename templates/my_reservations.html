@@ -1,10 +1,23 @@
-<h4>My reservations</h4>
-Selected chalet:{{chalet.name}}
-{%for reservation in reservations%}
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>My reservations</h2>
+{%for reservation in reservations %}
+Full name: {{reservation.fname}}{{reservation.lname}}
+
+Selected chalet:
 
 Selected people nr {{reservation.capacity}}
 Date: {{reservation.date}}
+Email: {{reservation.email}}
+<p> <a href="">Edit</a></p>
+<p> <a href="">Delete</a></p>
 
 
-{%empty%} <p>You have no reservation requests</p>
+{%empty%} 
+
+<p>You have no reservation requests</p>
 {%endfor%}
+
+{% endblock %}
