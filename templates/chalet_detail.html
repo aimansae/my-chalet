@@ -12,18 +12,16 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-uppercase">{{ chalet.name }}</h5>
                         <p class="card-text">Location:{{ chalet.location }}Location, maps link.</p>    
-                        <p>{{ chalet.description }}This is a longer card with supporting text below as a
-                            natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p>{{ chalet.description }} A detailed description</p>
 
                         <div class="card-body">
                             <p>Location:{{ location }}, maps link.</p>    
                             <p>Descr:{{ chalet.description }}, maps link.</p>    
-                            <p>capacity:{{ chalet.capacity }}, maps link.</p>    
-                            <p>Date:{{ chalet.selected_date }}</p>    
+                            <p>capacity:{{ chalet.capacity }}, maps link.</p>      
 
-                            <strong class="card-link">Price: {{ chalet.price }}</strong>
+                            <strong class="card-link">Price: €{{ chalet.price }}</strong>
 
-                        <a href="{% url 'reservation' chalet.id %}" class="btn btn-primary float-right">Reserve</a>
+                        <a href="{% url 'reservation' chalet.id %}" class="btn btn-primary">Reserve</a>
                         </div>
                     </div>
                 </div>
@@ -31,4 +29,5 @@
         
     
     </div>
+
 {% endblock %}

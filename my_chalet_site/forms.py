@@ -1,7 +1,7 @@
 from . models import MakeReservation
-from django import forms
 from django.forms import ModelForm
-
+from django.contrib.auth.models import User
+from django import forms
 
 # for dateinput:
 
@@ -14,7 +14,7 @@ class DateInput(forms.DateInput):
 class ReservationForm(ModelForm):
     class Meta:
         model = MakeReservation
-        fields = '__all__'  # 'fname', 'lname', 'phone', 'capacity' date,
+        fields = ('fname', 'lname', 'phone', 'capacity','date',)
         labels = {
             'email': 'email',
             'lname': 'Last Name',
