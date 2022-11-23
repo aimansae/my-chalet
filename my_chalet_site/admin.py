@@ -1,15 +1,11 @@
 from django.contrib import admin
-from .models import ChaletList, MakeReservation #SelectChalet, 
+from .models import ChaletList, MakeReservation
 
 
 @admin.register(ChaletList)
 class ChaletListAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
 
-
-#@admin.register(SelectChalet)
-#class SelectChaletAdmin(admin.ModelAdmin):
-    #list_display = ('name', 'location', 'price', 'description',)
 
 @admin.register(MakeReservation)
 class MakeReservationAdmin(admin.ModelAdmin):

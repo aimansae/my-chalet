@@ -35,9 +35,10 @@ def reservation(request, chalet_id):
 # pima wea cosi:
     chalet = ChaletList.objects.get(pk=chalet_id)
     
+    form = ReservationForm(initial={'selected_chalet':chalet_id})
+
     if request.method == 'POST':
         form = ReservationForm(data=request.POST)
-        print('Testing', request.POST)
 
         if form.is_valid():
             reservation_form = form.save(commit=False)
@@ -52,25 +53,45 @@ def reservation(request, chalet_id):
         messages.error(
             request, 'The form is not valid'
         )
-    form = ReservationForm()
+    #form = ReservationForm()
     context = {
-            'form': form,
-        }
+        'form': form,
+        'chalet': chalet
+    }
     return render(request, 'reservation.html', context)
 
 
 def my_reservations(request):
+    chalet = ChaletList.objects.all()
+
     if request.user.is_authenticated:
-        #halet = ChaletList.objects.get(id=chalet_id)
-        #chalet_name = ChaletList.name
+
         reservations = MakeReservation.objects.filter(user=request.user)
         context = {
             'reservations': reservations,
-            #'chalet_name':chalet_name
+            'chalet':chalet,
+
         }
         return render(request, 'my_reservations.html', context)
     else:
-        #if user is not authenticated:
+        # if user is not authenticated:
         messages.success(request, ('Please login to access this page'))
         return redirect('../accounts/signup')
-        
+
+
+#def edit_reservation(request, chalet_id):
+
+    #chalet = get_object_or_404(ChaletList, pk=chalet_id)
+    #if request.method == 'POST':
+        #form = ReservationForm(request.POST, instance=chalet)
+        #if form.is_valid():
+            #form.save()
+            #messages.success(request, 'Reservation updated!')
+            #return redirect('my_reservations')
+
+    #context = {
+        #'form': form,
+        #'chalet': chalet
+    #}
+
+    #return reder(request, 'edit_reservation.html', context)

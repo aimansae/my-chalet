@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block content %}
+{{ form.media }}
+<section>
+    <div class="container height mt-5 pt-5">
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+
+               
+                <h3>Manage your Reservation Request</h3>
+                <h4>Selected chalet:{{chalet.name}}
+                    <hr>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-info">Edit</button>
+                        <!--add for succes message
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}-->
+                        {% if submitted %}
+                        <div class="alert alert-success" role="alert">
+                            Reservation request Sent, we will contact you shortly
+                        </div>
+                    </form>
+                    {% endif %}
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

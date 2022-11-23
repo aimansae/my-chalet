@@ -1,23 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <h2>My reservations</h2>
+<h3>Chalet Name:{{chalet.id}}</h3>
+<h3>Price:{{chalet.price}}</h3>
 {%for reservation in reservations %}
 Full name: {{reservation.fname}}{{reservation.lname}}
+Selected chalet: {{reservation.selected_chalet}}
 
-Selected chalet:
+{%for chalets in chalet%}
 
-Selected people nr {{reservation.capacity}}
-Date: {{reservation.date}}
-Email: {{reservation.email}}
-<p> <a href="">Edit</a></p>
+Price: {{chalets.price}}
+
+{%endfor%}
+
+Selected people nr {{reservation.capacity}} <br>
+Date: {{reservation.date}} <br>
+Email: {{reservation.email}} <br>
 <p> <a href="">Delete</a></p>
 
 
 {%empty%} 
 
-<p>You have no reservation requests</p>
+<p>You have no reservation requests at the moment</p>
 {%endfor%}
 
 {% endblock %}
