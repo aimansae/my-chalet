@@ -34,8 +34,12 @@ def reservation(request, chalet_id):
     '''show form to make a reservation request'''
 # pima wea cosi:
     chalet = ChaletList.objects.get(pk=chalet_id)
-    
-    form = ReservationForm(initial={'selected_chalet':chalet_id})
+    name = ChaletList.name
+    price = ChaletList.price
+# prima era cosi funzionava
+    #form = ReservationForm(initial={'selected_chalet': chalet_id})
+    form = ReservationForm()
+
 
     if request.method == 'POST':
         form = ReservationForm(data=request.POST)
@@ -56,20 +60,26 @@ def reservation(request, chalet_id):
     #form = ReservationForm()
     context = {
         'form': form,
-        'chalet': chalet
+        'chalet': chalet,
+        'name': name,
+        'price': price,
     }
     return render(request, 'reservation.html', context)
 
 
 def my_reservations(request):
-    chalet = ChaletList.objects.all()
 
     if request.user.is_authenticated:
-
         reservations = MakeReservation.objects.filter(user=request.user)
+        user_reservation = MakeReservation.objects.all()
+        #chalet = ChaletList.objects.get(pk=chalet_id)
+        #name = ChaletList.name
+        #price = ChaletList.price
         context = {
             'reservations': reservations,
-            'chalet':chalet,
+            # 'name': name,
+            # 'price': price,
+            'user_reservation':user_reservation,
 
         }
         return render(request, 'my_reservations.html', context)
@@ -79,19 +89,19 @@ def my_reservations(request):
         return redirect('../accounts/signup')
 
 
-#def edit_reservation(request, chalet_id):
+def edit_reservation(request, chalet_id):
 
-    #chalet = get_object_or_404(ChaletList, pk=chalet_id)
-    #if request.method == 'POST':
-        #form = ReservationForm(request.POST, instance=chalet)
-        #if form.is_valid():
-            #form.save()
-            #messages.success(request, 'Reservation updated!')
-            #return redirect('my_reservations')
+    chalet = get_object_or_404(ChaletList, pk=chalet_id)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=chalet)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reservation updated!')
+            return redirect('my_reservations')
 
-    #context = {
-        #'form': form,
-        #'chalet': chalet
-    #}
+    context = {
+        'form': form,
+        'chalet': chalet
+    }
 
-    #return reder(request, 'edit_reservation.html', context)
+    return reder(request, 'edit_reservation.html', context)

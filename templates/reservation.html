@@ -12,12 +12,15 @@
 
                 <p>Welcome: {{user.username}}</p>
                 <h3>Send Reservation Request</h3>
-                <h4>Selected chalet:{{chalet.name}}
+                <!--<h4 >Selected chalet:{{chalet.name}}</h4>-->
                     <hr>
 
                     <form action="" method="POST">
+                        Name:{{chalet.name}}
                         {% csrf_token %}
                         {{ form.as_p }}
+                        Price:{{chalet.price}} <br>
+                       
                         <button type="submit" class="btn btn-info">Send</button>
                         <!--add for succes message
                         {% if messages %}
@@ -39,4 +42,5 @@
         </div>
     </div>
 </section>
+ 
 {% endblock %}

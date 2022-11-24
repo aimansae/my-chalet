@@ -9,4 +9,4 @@ class ChaletListAdmin(admin.ModelAdmin):
 
 @admin.register(MakeReservation)
 class MakeReservationAdmin(admin.ModelAdmin):
-    list_display = ('fname', 'capacity', 'date')
+    list_display = ('fname', 'capacity', 'date',)
