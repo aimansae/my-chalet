@@ -1,2 +1,17 @@
-.id_selected_chalet{
-    display:none};
+
+.logo {
+    width:250px;
+}
+.navbar{
+    color: #fff;
+}
+.navbar .navbar-toggler[aria-expanded="true"] {
+    
+    color: #fff;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}

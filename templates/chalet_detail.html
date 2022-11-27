@@ -1,29 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Chalet description</h1>
+    <h2 class="mt-3 text-uppercase text-center">Find out more about this chalet:</h3>
 
-    <div class="container">
-        <div class="row g-0">
+    <div class="container mb-5">
+        <div class="row" >
    
-            <div class="col-md-6">
+            <div class="col-md-6"> <!--center :  w-100-->
                 <div class="card h-100">
-                    <img class="card-img-top image-responsive" src="..." alt="Card image cap">
+                    <img class="card-img-top image-responsive" src="{{chalet.image.url}}" alt="Card image cap">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-uppercase">Chalet Name{{ chalet.name }}</h5>
-                        <p class="card-text">Location:{{ chalet.location }}Location, maps link.</p>    
-                        <p>{{ chalet.description }} A detailed description</p>
+                        <h5 class="card-title text-uppercase text-center mt-2">{{ chalet.name }}</h5>
+                        <!--<p class="card-text pt-3"><strong>Location:</strong><br>  {{ chalet.location }}Location, maps link.</p>  
+                        <p class="card-text pt-3"><strong>Desctiption:</strong> <br>{{ chalet.description }}</p> -->
 
-                        <div class="card-body">
-                            <p>Location:{{ location }}, maps link.</p>    
-                            <p>Descr:{{ chalet.description }}, maps link.</p>    
-                            <p>capacity:{{ chalet.capacity }}, maps link.</p>      
+                        <div class="card-body pt-2">
+                            <p class="card-text"><strong>Location</strong> <a href="https://shorturl.at/adgX0"> <i class="fa-solid fa-location-dot" rel="noopener" aria-label="visit link on Google Maps"></i><br>{{ chalet.location }}</p></a>
+                            
+                            <p class="card-text"><strong>Desctiption:</strong> <br>{{ chalet.description }}</p>
+                            <p class="card-text"><strong>Capacity:</strong> {{ chalet.capacity }} Max 6 people </p>
 
                             <strong class="card-link">Price: €{{ chalet.price }}</strong>
-
-                        <a href="{% url 'reservation' chalet.id %}" class="btn btn-primary">Reserve</a>
+                           
+                            <a href="{% url 'reservation' chalet.id %}" class="btn btn-primary float-end">Reserve</a>
                         </div>
-                    </div>
                 </div>
             </div>
         

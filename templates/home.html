@@ -1,31 +1,37 @@
-
-
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-
-<h1>Welcome to my chalet</h1>
-<h2>On my chalet we selected the best and most exclusive chalets you can choose for 1 nigh rxperience; Here are the options:</h2>
+    <div class="p-4 text-center justify-content-center align-items-center">
+        <h1 class="mt-auto text-uppercase">Welcome to my chalet</h1>
+        <h5> My chalet is a website where we reccomend the best chalets in Italy. We have selected the most exclusive
+            chalets for you.<br>
+            You can send a reservation request and we will contact you shortly regading the availability.<br> <span
+                class="fst-italic">Please note that these chalets are only for one night stay.</span><br>
+            <p class="mt-4">Here is our reccomended list:</p>
+    </div>
 <div class="container">
     {% for chalet in chalet_list %}
     {% if forloop.counter0|divisibleby:3 %} <div class="row"> {% endif %}
-        <div class="col-md-4">
+        <div class="col-md-4 mb-5 ">
             <div class="card h-100">
-                <img class="card-img-top image-responsive" src="..." alt="Card image cap">
+                <h5 class="card-title text-uppercase text-center m-3">{{chalet.name}}</h5>
+                <img class="card-img-top image-responsive" src="{{chalet.image.url}}" width="55%" height="50%" alt="Card image cap">
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-uppercase">{{chalet.name}}</h5>
-                    <p class="card-text">{{ chalet.description }}This is a longer card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit longer.</p>
-                        <strong class="card-link">Price: {{ chalet.price }}</strong>
+                
+                    <!--<p class="card-text">{{ chalet.description }}This is a longer card with supporting text below as a
+                        natural lead-in to additional content. This content is a little bit longer.</p>-->
+                        <p class="card-text"><strong>Location</strong> <a href="https://shorturl.at/adgX0"> <i class="fa-solid fa-location-dot" rel="noopener" aria-label="visit link on Google Maps"></i><br>{{ chalet.location }}</a></p>
+                    <strong class="card-link">Price:€ {{ chalet.price }}</strong>
                     <div class="card-body">
-                        
-                    <a href="{% url 'chalet_detail' chalet.id %}" class="btn btn-primary float-right">Reserve</a> 
+
+                        <a href="{% url 'chalet_detail' chalet.id %}" class="btn btn-primary float-end">Reserve</a>
                     </div>
                 </div>
             </div>
         </div>
-        {% if forloop.counter|divisibleby:3 or forloop.last %} <!--CHECK-->
-    </div><br>{% endif %}
+        {% if forloop.counter|divisibleby:3 or forloop.last %}
+        <!--CHECK-->
+    </div>{% endif %}
     {% endfor %}
 
 </div>

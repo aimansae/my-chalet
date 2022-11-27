@@ -8,16 +8,19 @@
     <div class="container height mt-5 pt-5">
         <div class="row">
             <div class="col-md-8 mt-3 offset-md-2">
+                <h2>Send a reservation request</h2>
                 {% if user.is_authenticated %}
 
                 <p>Welcome: {{user.username}}</p>
-                <h3>Send Reservation Request</h3>
+              
                 <!--<h4 >Selected chalet:{{chalet.name}}</h4>-->
                     <hr>
 
                     <form action="" method="POST">
-                        Name:{{chalet.name}}
+                       <!-- Name:{{chalet.name}}-->
+                        
                         {% csrf_token %}
+                        NAME: {{user_reservation}} 
                         {{ form.as_p }}
                         Price:{{chalet.price}} <br>
                        
@@ -30,14 +33,17 @@
                             {% endfor %}
                         </ul>
                         {% endif %}-->
-                        {% if submitted %}
+                        <!--{% if submitted %}
                         <div class="alert alert-success" role="alert">
                             Reservation request Sent, we will contact you shortly
                         </div>
+                        {% endif %}-->
                     </form>
+                    
+                    {% else%}
+                    <p>To make a resevation please <a href="{% url 'account_login' %}">Log In</a>.
+                    If you don't have an account yet, please <a href="{% url 'account_signup' %}">Register</a></p>
                     {% endif %}
-
-                {% endif %}
             </div>
         </div>
     </div>

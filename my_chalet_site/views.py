@@ -37,9 +37,9 @@ def reservation(request, chalet_id):
     name = ChaletList.name
     price = ChaletList.price
 # prima era cosi funzionava
-    #form = ReservationForm(initial={'selected_chalet': chalet_id})
-    form = ReservationForm()
-
+    form = ReservationForm(initial={'selected_chalet': chalet_id})
+    # form = ReservationForm()
+    user_reservation = chalet
 
     if request.method == 'POST':
         form = ReservationForm(data=request.POST)
@@ -47,6 +47,8 @@ def reservation(request, chalet_id):
         if form.is_valid():
             reservation_form = form.save(commit=False)
             reservation_form.user = request.user
+            # reservation_form.selected_chalet = chalet_id
+
             # to delete form.instance.name = request.user.username
             reservation_form.save()
             messages.success(
@@ -57,12 +59,14 @@ def reservation(request, chalet_id):
         messages.error(
             request, 'The form is not valid'
         )
-    #form = ReservationForm()
+    # form = ReservationForm()
     context = {
         'form': form,
         'chalet': chalet,
         'name': name,
         'price': price,
+        # nuovo
+        'user_reservation': user_reservation
     }
     return render(request, 'reservation.html', context)
 
@@ -72,14 +76,12 @@ def my_reservations(request):
     if request.user.is_authenticated:
         reservations = MakeReservation.objects.filter(user=request.user)
         user_reservation = MakeReservation.objects.all()
-        #chalet = ChaletList.objects.get(pk=chalet_id)
-        #name = ChaletList.name
-        #price = ChaletList.price
+        
         context = {
             'reservations': reservations,
             # 'name': name,
             # 'price': price,
-            'user_reservation':user_reservation,
+            'user_reservation': user_reservation,
 
         }
         return render(request, 'my_reservations.html', context)
@@ -89,19 +91,22 @@ def my_reservations(request):
         return redirect('../accounts/signup')
 
 
-def edit_reservation(request, chalet_id):
+def editReservation(request,chalet_id):
+    '''To Edit a reservation request is user is logged in'''
 
-    chalet = get_object_or_404(ChaletList, pk=chalet_id)
-    if request.method == 'POST':
-        form = ReservationForm(request.POST, instance=chalet)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Reservation updated!')
-            return redirect('my_reservations')
-
-    context = {
-        'form': form,
-        'chalet': chalet
-    }
-
-    return reder(request, 'edit_reservation.html', context)
+    if user.is_authenticated:
+        #reservation = MakeReservation, id=
+        
+        form = ReservationForm(request.POST or None, instance=chalet)
+       
+        if request.method == "POST":
+            if form.is_valid():
+                form.save()
+                messages.success(request, ('Reservation request updated'))
+                return redirect(my_reservations)
+           
+        context = {
+           'form': form,
+           'chalet':chalet
+        }
+    return render(request, 'edit_reservation.html', context)              

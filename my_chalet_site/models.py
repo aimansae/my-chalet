@@ -21,11 +21,8 @@ class ChaletList(models.Model):
     location = models.CharField(
         max_length=150, default='location', blank=False)
     image = CloudinaryField('Image', default='placeholder')
-    # aggiunto dopo
     description = models.TextField(default='description', blank=False)
-
     price = models.DecimalField(null=True, max_digits=10, decimal_places=2)
-    # aggiunto dopo
     chalet_images = CloudinaryField('Image', default='placeholder')
 
     def __str__(self):
@@ -42,8 +39,9 @@ class MakeReservation(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=None,
                              related_name='user_booking',)  # to remove null=True, default=None LATER
-    
-    selected_chalet = models.ForeignKey(ChaletList,on_delete=models.CASCADE, null=True )
+
+    selected_chalet = models.ForeignKey(
+        ChaletList, on_delete=models.CASCADE, null=True)
     fname = models.CharField(
         'First Name', max_length=150, null=True, blank=False)
     lname = models.CharField(
@@ -58,7 +56,7 @@ class MakeReservation(models.Model):
         return now + timedelta(days=1)
 
     # OR .date()+timedelta(days=1)
-    date = models.DateField(default=date_tomorrow, validators=[validation]) 
+    date = models.DateField(default=date_tomorrow, validators=[validation])
 
     def __str__(self):
         '''returns selected chalet name'''

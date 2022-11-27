@@ -1,5 +1,5 @@
-from . models import MakeReservation
 from django.forms import ModelForm
+from . models import MakeReservation
 from django.contrib.auth.models import User
 from django import forms
 from django.utils import timezone
@@ -18,8 +18,8 @@ class ReservationForm(forms.ModelForm):
 
     class Meta:
         model = MakeReservation
-        fields = ('selected_chalet', 'fname', 'lname',
-                  'phone', 'capacity', 'date',)
+        fields = ('selected_chalet', 'fname', 'lname','email',
+                  'phone', 'capacity', 'date')
         labels = {
             'selected_chalet': 'selected_chalet',
             'email': 'email',
