@@ -6,7 +6,9 @@ from django.utils import timezone
 from datetime import datetime, date, timedelta  # for date validation
 
 
+
 # for dateinput:
+
 
 class DateInput(forms.DateInput):
 
@@ -18,24 +20,30 @@ class ReservationForm(forms.ModelForm):
 
     class Meta:
         model = MakeReservation
-        fields = ('selected_chalet', 'fname', 'lname','email',
+        fields = ('selected_chalet', 'fname', 'lname', 'email',
                   'phone', 'capacity', 'date')
         labels = {
-            'selected_chalet': 'selected_chalet',
-            'email': 'email',
+            'selected_chalet': 'Selected Chalet',
+            'email': 'Email',
             'lname': 'Last Name',
             'phone': 'Phone',
             'capacity': 'Number of People',
             'date': 'Select Date',
-
         }
 
-        # 'date': forms.DateInput(attrs={'type': 'date'}),
+        widgets = {
+            'selected_chalet': forms.HiddenInput(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['selected_chalet'].disable = True
+
+        # 'date': forms.DateInput(attrs={'type': 'date'})
 
     date = forms.DateField(
-        widget=forms.DateInput(format='%d/%m/%Y',attrs={'type': 'date'}),
-        #input_formats=('%d/%m/%Y', )
-
-        )
-
-    #selected_chalet = forms.ChoiceField(widget=forms.Select(attrs={'disabled':'disabled'}))
+        widget=forms.SelectDateWidget(),initial=MakeReservation.date_tomorrow)
+    
+    
+    
+#dopo format era cosi attrs={'type': 'date'})

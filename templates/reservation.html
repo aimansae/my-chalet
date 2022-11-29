@@ -5,48 +5,49 @@
 {% block content %}
 {{ form.media }}
 <section>
-    <div class="container height mt-5 pt-5">
+    <div class="container">
         <div class="row">
-            <div class="col-md-8 mt-3 offset-md-2">
-                <h2>Send a reservation request</h2>
+            <div class="col-md-6 col-lg-5 mx-auto mb-4">
+                
                 {% if user.is_authenticated %}
+                <h4 class="fst-italic text-uppercase pt-5">Send a reservation request:</h4>
+                <small>Please note that you can only selects future dates, from tomorow</small>
 
-                <p>Welcome: {{user.username}}</p>
-              
-                <!--<h4 >Selected chalet:{{chalet.name}}</h4>-->
-                    <hr>
-
-                    <form action="" method="POST">
-                       <!-- Name:{{chalet.name}}-->
-                        
-                        {% csrf_token %}
-                        NAME: {{user_reservation}} 
-                        {{ form.as_p }}
-                        Price:{{chalet.price}} <br>
-                       
-                        <button type="submit" class="btn btn-info">Send</button>
-                        <!--add for succes message
-                        {% if messages %}
-                        <ul class="messages">
+                <h6>Welcome: {{user.username}}</h6>
+                <P>Selected Chalet: {{chalet.name}}</P>
+                <!--SE: {{chalet.name}}-->
+                <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p>Price:€ {{chalet.price}}</p>
+                <button type="submit" class="btn btn-info float-end">Send</button>
+                </form>
+                
+            
+            <!--add for succes messages
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md offset md-2-">
                             {% for message in messages %}
-                            <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                            <div class="alert {{message.tags}} alert-dismissible fade show" id="msg" role="altert">
+                                {{message | safe}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                             {% endfor %}
-                        </ul>
-                        {% endif %}-->
-                        <!--{% if submitted %}
-                        <div class="alert alert-success" role="alert">
-                            Reservation request Sent, we will contact you shortly
                         </div>
-                        {% endif %}-->
-                    </form>
-                    
-                    {% else%}
-                    <p>To make a resevation please <a href="{% url 'account_login' %}">Log In</a>.
+                    </div>
+                </div>-->
+
+    
+               
+                
+                {% else%}
+                <p>To make a resevation please <a href="{% url 'account_login' %}">Log In</a>.
                     If you don't have an account yet, please <a href="{% url 'account_signup' %}">Register</a></p>
-                    {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
- 
+
 {% endblock %}

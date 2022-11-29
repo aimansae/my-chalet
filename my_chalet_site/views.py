@@ -47,25 +47,20 @@ def reservation(request, chalet_id):
         if form.is_valid():
             reservation_form = form.save(commit=False)
             reservation_form.user = request.user
-            # reservation_form.selected_chalet = chalet_id
-
-            # to delete form.instance.name = request.user.username
             reservation_form.save()
             messages.success(
                 request, 'Thank you, your reservation request is submitted!!')
-            # need to create a my booking page
             return redirect('my_reservations')
     else:
         messages.error(
             request, 'The form is not valid'
         )
-    # form = ReservationForm()
+    # TO CHECK form = ReservationForm()
     context = {
         'form': form,
         'chalet': chalet,
         'name': name,
         'price': price,
-        # nuovo
         'user_reservation': user_reservation
     }
     return render(request, 'reservation.html', context)
@@ -76,7 +71,7 @@ def my_reservations(request):
     if request.user.is_authenticated:
         reservations = MakeReservation.objects.filter(user=request.user)
         user_reservation = MakeReservation.objects.all()
-        
+
         context = {
             'reservations': reservations,
             # 'name': name,
@@ -91,22 +86,23 @@ def my_reservations(request):
         return redirect('../accounts/signup')
 
 
-def editReservation(request,chalet_id):
-    '''To Edit a reservation request is user is logged in'''
-
-    if user.is_authenticated:
-        #reservation = MakeReservation, id=
+def editReservation(request, reservation_id):
+    if request.user.is_authenticated:
+        reservations = MakeReservation.objects.get(pk=reservation_id)
+        form = ReservationForm(instance=reservations)
         
-        form = ReservationForm(request.POST or None, instance=chalet)
-       
-        if request.method == "POST":
+        if request.method == 'POST':    
+            form = ReservationForm(request.POST, instance=reservations)     
             if form.is_valid():
                 form.save()
-                messages.success(request, ('Reservation request updated'))
-                return redirect(my_reservations)
-           
-        context = {
-           'form': form,
-           'chalet':chalet
-        }
-    return render(request, 'edit_reservation.html', context)              
+                messages.success(request, ('Reservation Updated'))
+                return redirect('my_reservations')
+
+        context = {'form': form,
+                   'reservations': reservations}
+
+        return render(request, 'edit_reservation.html', context)
+
+    else:
+        messages.success(request, ('Please log in to enter this page'))
+        return redirect('accoount_login')

@@ -31,7 +31,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+            <div class="collapse navbar-collapse" id="navbarSupportedContent " >
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
@@ -65,6 +65,18 @@
             </div>
         </div>
     </nav>
+    <!--<div class="container">
+        <div class="row">
+            <div class="col-md offset md-2-">
+                {% for message in messages %}
+                <div class="alert {{message.tags}} alert-dismissible fade show" id="msg" role="altert">
+                    {{message | safe}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>-->
 </header>
 <main>
     {% block content %}
@@ -75,12 +87,11 @@
 
     
      <!-- Footer -->
-     <footer class=" footer bg-dark text-center text-white pb2">
-        <p class="m-0 text-center">Made by Code Instituters</p>
-        <p class="m-0 text-center">Follow us: <a href="https://facebook.com"><i class="fab fa-facebook-square ms-3"rel="noopener" aria-label="visit our Facebook page ( in a new tab)"></i></a>
-            <a href="https://twitter.com"><i class="fa-brands fa-twitter"rel="noopener" aria-label="visit our Facebook page ( in a new tab)"></i></a>
-            <a href="https://instagram.com"><i class="fab fa-instagram-square ms-3"rel="noopener" aria-label="visit our Instagram page ( in a new tab)"></i></a>
-            
+     <footer class=" footer bg-black text-center text-white pb2">
+        <p class="m-0 text-center text-white">Made by Aiman Saeed</p>
+            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter" rel="noopener pl-3" aria-label="visit our Twitter page ( in a new tab)"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"rel="noopener" aria-label="visit our Instagram page ( in a new tab)"></i></a>
+            <a href="https://facebok.com" target="_blank"><i class="fa-brands fa-facebook-f" rel="noopener" aria-label="visit our Facebok page ( in a new tab)"></i></a>
         </p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

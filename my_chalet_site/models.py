@@ -6,6 +6,9 @@ from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.core import validators
 
+
+
+
 CAPACITY = (
     ('1', '1'),
     ('2', '2'),
@@ -37,6 +40,7 @@ class MakeReservation(models.Model):
         elif date == timezone.now().date():
             raise ValidationError("Date cannot be today")
 
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=None,
                              related_name='user_booking',)  # to remove null=True, default=None LATER
 
@@ -46,7 +50,7 @@ class MakeReservation(models.Model):
         'First Name', max_length=150, null=True, blank=False)
     lname = models.CharField(
         'Last Name', max_length=150, null=True, blank=False)
-    email = models.EmailField(unique=True, null=True)
+    email = models.EmailField(null=True)
     phone = models.CharField(max_length=15, null=True, blank=False)
     capacity = models.CharField(
         max_length=2, choices=CAPACITY, default='2', blank=False)
