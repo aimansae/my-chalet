@@ -19,3 +19,33 @@
 .form {
     margin:5px
 }
+
+/*for price in homepage cards*/
+
+.price{
+    font-size: large;
+}
+
+.zoomeffect{
+    overflow: hidden;
+}
+
+.zoomeffect img{
+    transition: all 1.5s ease;
+}
+
+.zoomeffect:hover img{
+    transform: scale(1.2);
+}
+
+hr{
+   
+    width:50%;
+    margin-left: 25%;
+}
+
+ h5.lead{
+    color:rgb(177, 17, 17);
+    font-weight: bold;
+
+}

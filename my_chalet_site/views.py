@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, View
-from django.contrib import messages
 from .models import ChaletList, MakeReservation  # SelectChalet
 from .forms import ReservationForm
+from django.contrib import messages
+
 # from django.views.generic import View
 
 
@@ -16,7 +17,7 @@ def home(request):
 
 
 class ChaletDetail(View):
-    '''show details about selected chalet'''
+    '''shows detailed desciption of the selected chalet'''
 
     def get(self, request, chalet_id, *args, **kwargs):
         # questo era gia cosi
@@ -31,8 +32,8 @@ class ChaletDetail(View):
 
 
 def reservation(request, chalet_id):
-    '''show form to make a reservation request'''
-# pima wea cosi:
+    '''allows the user form to make a reservation request'''
+
     chalet = ChaletList.objects.get(pk=chalet_id)
     name = ChaletList.name
     price = ChaletList.price
@@ -67,6 +68,7 @@ def reservation(request, chalet_id):
 
 
 def my_reservations(request):
+    '''page that shows all the reservations the user made'''
 
     if request.user.is_authenticated:
         reservations = MakeReservation.objects.filter(user=request.user)
@@ -74,8 +76,6 @@ def my_reservations(request):
 
         context = {
             'reservations': reservations,
-            # 'name': name,
-            # 'price': price,
             'user_reservation': user_reservation,
 
         }
@@ -86,13 +86,15 @@ def my_reservations(request):
         return redirect('../accounts/signup')
 
 
-def editReservation(request, reservation_id):
+def edit_reservation(request, reservation_id):
     if request.user.is_authenticated:
-        reservations = MakeReservation.objects.get(pk=reservation_id)
+        # prima: reservations = MakeReservation.objects.get(pk=reservation_id)
+        reservations = get_object_or_404(MakeReservation, pk=reservation_id)
+
         form = ReservationForm(instance=reservations)
-        
-        if request.method == 'POST':    
-            form = ReservationForm(request.POST, instance=reservations)     
+
+        if request.method == 'POST':
+            form = ReservationForm(request.POST, instance=reservations)
             if form.is_valid():
                 form.save()
                 messages.success(request, ('Reservation Updated'))
@@ -106,3 +108,12 @@ def editReservation(request, reservation_id):
     else:
         messages.success(request, ('Please log in to enter this page'))
         return redirect('accoount_login')
+
+
+def delete_reservation(request, reservation_id):
+
+    if request.user.is_authenticated:
+        reservations = MakeReservation.objects.get(pk=reservation_id)
+        reservations.delete()
+        return redirect('home')
+

@@ -13,7 +13,7 @@ Date: {{reservation.date}} <br>
 Email: {{reservation.email}} <br>
 <p> <a href="{% url 'edit' reservation.id %}">Edit</a></p>
 
-<p> <a href="">Delete</a></p>
+<p> <a href="{% url 'delete' reservation.id %}">Delete</a></p>
 
 
 {%empty%} 

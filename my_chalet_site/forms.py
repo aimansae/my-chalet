@@ -9,11 +9,10 @@ from datetime import datetime, date, timedelta  # for date validation
 
 # for dateinput:
 
+#class DateInput(forms.DateInput):
 
-class DateInput(forms.DateInput):
-
-    '''for date picker'''
-    input_type = 'date'
+   # '''for date picker'''
+   # input_type = 'date'
 
 
 class ReservationForm(forms.ModelForm):

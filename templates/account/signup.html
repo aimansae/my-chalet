@@ -6,18 +6,18 @@
 
 {% block content %}
 
-<div class="container ">
+<div class="container">
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2 ">
-    <h2>Welcome to My Chalet</h2>
-     <h3>{% trans "Sign Up" %}</h3>
+    <div class="col-md-6 offset-md-3 col-example">
+    <h2 class="my-4">Welcome to My Chalet</h2>
+     <h3 class="my-4 text-center">{% trans "Sign Up" %}</h3>
       <p>{% blocktrans %} Already have an account? Then please <a href="{{ login_url }}">Log in</a>.{% endblocktrans %}
       </p>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-8 mt-3 offset-md-2 ">
+  <div class="col-md-6 offset-md-3 col-example">
     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}
       {{ form.as_p }}
