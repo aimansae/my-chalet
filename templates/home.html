@@ -14,7 +14,7 @@
 <section class="container">
     {% for chalet in chalet_list %}
     {% if forloop.counter0|divisibleby:3 %} <div class="row"> {% endif %}
-        <div class="col-md-4 mb-5 ">
+        <div class="col-12 col-sm-6 col-md-4 mb-5 ">
             <div class="card h-100 shadow">
                 <div class="zoomeffect">
                 <img class="card-img-top image-responsive" src="{{chalet.image.url}}" width="55%" height="50%"

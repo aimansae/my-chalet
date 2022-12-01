@@ -23,9 +23,9 @@ class ReservationForm(forms.ModelForm):
                   'phone', 'capacity', 'date')
         labels = {
             'selected_chalet': 'Selected Chalet',
-            'email': 'Email',
+            'email': 'Your Email',
             'lname': 'Last Name',
-            'phone': 'Phone',
+            'phone': 'Phone Nr',
             'capacity': 'Number of People',
             'date': 'Select Date',
         }

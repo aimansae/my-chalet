@@ -115,5 +115,6 @@ def delete_reservation(request, reservation_id):
     if request.user.is_authenticated:
         reservations = MakeReservation.objects.get(pk=reservation_id)
         reservations.delete()
-        return redirect('home')
+        messages.success(request, ('Reservation request deleted'))
+        return redirect('my_reservations')
 

@@ -7,20 +7,22 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-5 mx-auto mb-4">
+            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3 my-2">
                 
                 {% if user.is_authenticated %}
-                <h4 class="fst-italic text-uppercase pt-5">Send a reservation request:</h4>
-                <small>Please note that you can only selects future dates, from tomorow</small>
+                <h2 class="fst-italic text-uppercase py-4">Send a reservation request:</h2>
+                
 
-                <h6>Welcome: {{user.username}}</h6>
-                <P>Selected Chalet: {{chalet.name}}</P>
+                <p>Welcome: {{user.username}}</p>
+                <P class="blockquote my-2">Selected Chalet: {{chalet.name}}</P>
+                <p class="blockquote mb-4">Price:€ {{chalet.price}}</p>
                 <!--SE: {{chalet.name}}-->
                 <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <p>Price:€ {{chalet.price}}</p>
-                <button type="submit" class="btn btn-info float-end">Send</button>
+                <p class="text-muted p-1"><i class="fa-solid fa-triangle-exclamation"></i> Please note that you can <strong>only</strong> select Future dates from tomorow.</p>
+                
+                <button type="submit" class="btn btn-info btn-lg mb-4">Send</button>
                 </form>
                 
             

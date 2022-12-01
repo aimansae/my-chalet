@@ -1,24 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>My reservations Requests</h2>
-{% for reservation in reservations %}
-<h3>Chalet Name:{{chalet.name}}</h3>
-
-Selected chalet:{{reservation.selected_chalet}}<br>
-Full name: {{reservation.fname}}{{reservation.lname}}<br>
-Price: {{reservation.selected_chalet.price}}<br>
-Selected people nr {{reservation.capacity}} <br>
-Date: {{reservation.date}} <br>
-Email: {{reservation.email}} <br>
-<p> <a href="{% url 'edit' reservation.id %}">Edit</a></p>
-
-<p> <a href="{% url 'delete' reservation.id %}">Delete</a></p>
 
 
-{%empty%} 
+<h2 class="fst-italic text-uppercase text-center py-4">My Reservation Requests</h2>
 
-<p>You have no reservation requests at the moment</p>
-{%endfor%}
+<div class="container">
+    {% for reservation in reservations %}
+    {% if forloop.counter0|divisibleby:2 %} <div class="row"> {% endif %}
+        <div class="col-12 col-sm-6 offset-sm-3 col-md-4 offset-md-4 mb-5 ">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Selected chalet: {{reservation.selected_chalet}}</h5>
+                    <p class="card-text">Full name: {{reservation.fname}}{{reservation.lname}}
+                    <p class="card-text">Price: {{reservation.selected_chalet.price}}</p>
+                    <p class="card-text">Selected people nr {{reservation.capacity}}</p>
+                    <p class="card-text">Date: {{reservation.date}}</p>
+                    <p class="card-text">Email: {{reservation.email}}</p>
+                    <a href="{% url 'edit' reservation.id %}" class="btn btn-primary  ms-2">Change</a>
+                    <a href="{% url 'delete' reservation.id %}" class="btn btn-primary mx-4">Delete</a>
 
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:2 or forloop.last %}
+    </div>{% endif %}
+
+</div>
+{%empty%}
+
+<p class="lead">You have no reservation requests at the moment</p>
+
+{% endfor %}
 {% endblock %}
