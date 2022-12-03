@@ -1,18 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Raleway&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+}
 
-body{
-    font-family: 'Roboto', sans-serif;
+h1 {
+    font-family: 'Raleway', sans-serif;
 }
 
 .logo {
-    width:250px;
+    width: 250px;
 }
-.navbar{
+
+.navbar {
     color: #fff;
 }
+
 .navbar .navbar-toggler[aria-expanded="true"] {
-    
+
     color: #fff;
 }
 
@@ -23,43 +28,123 @@ body{
 }
 
 .form {
-    margin:5px
+    margin: 5px
 }
 
 /*for price in homepage cards*/
 
-.price{
+.price {
     font-size: large;
 }
 
-.zoomeffect{
+.zoomeffect {
     overflow: hidden;
 }
 
-.zoomeffect img{
+.zoomeffect img {
     transition: all 1.5s ease;
 }
 
-.zoomeffect:hover img{
+.zoomeffect:hover img {
     transform: scale(1.2);
 }
 
-hr{
-   
-    width:50%;
+hr {
+    width: 50%;
     margin-left: 25%;
 }
 
- h5.lead{
-    color:rgb(177, 17, 17);
-    font-weight: 900;
-
-}
-p.lead{
+h5.lead {
+    color: rgb(177, 17, 17);
     font-weight: 900;
 }
 
+p.lead {
+    font-weight: 900;
+}
+
+/* for back to top button*/
+#btn-back-to-top {
+    position: fixed;
+    bottom: 9%;
+    right: 3px;
+    display: none;
+    background: transparent;
+    border: none
+}
+
+.fa-arrow-up {
+    background: transparent;
+}
+
+/* for footer */
 footer a {
     font-size: x-large;
     color: #fff;
+}
+
+
+/* buttons for my reservations.html*/
+
+.change{
+    background-color: #48e138f0; 
+    font-weight: 800;
+    border-color:#299b1df0;
+
+}
+.change:hover{
+    background-color: #299b1df0; 
+
+
+}
+.delete{
+    background-color: #eb3d3de0;
+    font-weight: 800;
+    border-color:#f10741;
+}
+
+.delete:hover{
+    background-color: #f10741; ; 
+
+
+}
+/* responsive design for smaller devices till 768px*/
+
+@media screen and (max-width:768px) {
+    .card-img-top {
+        height: 80vw;
+    }
+
+
+    .zoomeffect {
+        overflow: hidden;
+    }
+
+    .zoomeffect img {
+        transition: all 1.5s ease;
+    }
+
+    .zoomeffect:hover img {
+        transform: scale(1.2);
+    }
+
+    /* for back to top button*/
+
+    #btn-back-to-top {
+        bottom: 12%;
+        right: 1px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .card {
+        width: 100%;
+    }
+}
+
+/* for chalet detail page*/
+
+@media (min-width: 768px) .col-md-6 {
+    flex: 0 0 auto;
+    width: 70%;
 }

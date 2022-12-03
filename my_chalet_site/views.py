@@ -50,7 +50,7 @@ def reservation(request, chalet_id):
             reservation_form.user = request.user
             reservation_form.save()
             messages.success(
-                request, 'Thank you, your reservation request is submitted!!')
+                request, 'Thank you, your reservation request is submitted, we will contact you shortly!!')
             return redirect('my_reservations')
     else:
         messages.error(

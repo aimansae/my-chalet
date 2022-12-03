@@ -8,41 +8,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3 my-2">
-                
                 {% if user.is_authenticated %}
                 <h2 class="fst-italic text-uppercase py-4">Send a reservation request:</h2>
-                
-
                 <p>Welcome: {{user.username}}</p>
                 <P class="blockquote my-2">Selected Chalet: {{chalet.name}}</P>
                 <p class="blockquote mb-4">Price:€ {{chalet.price}}</p>
                 <!--SE: {{chalet.name}}-->
                 <form method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <p class="text-muted p-1"><i class="fa-solid fa-triangle-exclamation"></i> Please note that you can <strong>only</strong> select Future dates from tomorow.</p>
-                
-                <button type="submit" class="btn btn-info btn-lg mb-4">Send</button>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <p class="text-muted p-1"><i class="fa-solid fa-triangle-exclamation"></i> Please note that you can
+                        <strong>only</strong> select Future dates from tomorow.</p>
+                    <button type="submit" class="btn btn-info btn-lg mb-4">Send</button>
                 </form>
-                
-            
-            <!--add for succes messages
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md offset md-2-">
-                            {% for message in messages %}
-                            <div class="alert {{message.tags}} alert-dismissible fade show" id="msg" role="altert">
-                                {{message | safe}}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>-->
-
-    
-               
-                
                 {% else%}
                 <p>To make a resevation please <a href="{% url 'account_login' %}">Log In</a>.
                     If you don't have an account yet, please <a href="{% url 'account_signup' %}">Register</a></p>
