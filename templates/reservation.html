@@ -1,23 +1,19 @@
 {% extends 'base.html' %}
-{% load i18n %}
-{% load account socialaccount %}
-
 {% block content %}
-{{ form.media }}
+
 <section>
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3 my-2">
                 {% if user.is_authenticated %}
-                <h2 class="fst-italic text-uppercase py-4">Send a reservation request:</h2>
-                <p>Welcome: {{user.username}}</p>
+                <h2 class="text-uppercase text-center py-2">Send a reservation request:</h2>
                 <P class="blockquote my-2">Selected Chalet: {{chalet.name}}</P>
                 <p class="blockquote mb-4">Price:€ {{chalet.price}}</p>
                 <!--SE: {{chalet.name}}-->
                 <form method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <p class="text-muted p-1"><i class="fa-solid fa-triangle-exclamation"></i> Please note that you can
+                    <p class="fst-italic"><i class="fa-solid fa-triangle-exclamation"></i> Please note that you can
                         <strong>only</strong> select Future dates from tomorow.</p>
                     <button type="submit" class="btn btn-info btn-lg mb-4">Send</button>
                 </form>

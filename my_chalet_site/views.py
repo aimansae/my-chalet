@@ -53,10 +53,8 @@ def reservation(request, chalet_id):
                 request, 'Thank you, your reservation request is submitted, we will contact you shortly!!')
             return redirect('my_reservations')
     else:
-        messages.error(
-            request, 'The form is not valid'
-        )
-    # TO CHECK form = ReservationForm()
+        form = ReservationForm(initial={'selected_chalet': chalet_id})
+
     context = {
         'form': form,
         'chalet': chalet,
@@ -117,4 +115,3 @@ def delete_reservation(request, reservation_id):
         reservations.delete()
         messages.success(request, ('Reservation request deleted'))
         return redirect('my_reservations')
-

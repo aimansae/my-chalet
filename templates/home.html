@@ -4,15 +4,16 @@
 
 <section class="p-4 text-center justify-content-center align-items-center">
     <h1 class="mb-4 text-uppercase">Welcome to my chalet</h1>
-    <h4 class="my-4"> My chalet is a website where we reccomend the best chalets in Italy. <br>We have selected the most
-        exclusive
-        chalets for you.<br>You can send a reservation request and we will contact you shortly regading the availability.</h4>
-    <h5 class="fst-italic lead mt-4">Please note that these chalets are only for <mark>one night stay.</mark></h5>
+    <h4 class="my-4">We have selected the most
+        exclusivechalets chalets in Italy for you.<br>You can send a reservation request and we will contact you shortly
+        regading the availability.</h4>
+    <h5 class="fst-italic lead mt-4">Please note that these chalets are only for <span>one night stay.</span></h5>
     <hr>
     <p class="mb-2 lead">Here is our reccomended list:</p>
 </section>
 
-<section class="container">
+<section class="container background-grey">
+    <!--CHECK-->
     {% for chalet in chalet_list %}
     {% if forloop.counter0|divisibleby:3 %} <div class="row"> {% endif %}
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-5">
@@ -23,31 +24,26 @@
                 </div>
                 <div class="card-body d-flex flex-column">
                     <h4 class="card-title text-uppercase text-center">{{chalet.name}}</h4>
-
-
-                    <!--<p class="card-text">{{ chalet.description }}This is a longer card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit longer.</p>-->
                     <p class="card-text h4"><strong>Location</strong> <a href="https://shorturl.at/adgX0"
                             target="_blank">
                             <i class="fa-solid fa-location-dot my-3" rel="noopener"
                                 aria-label="visit link on Google Maps"></i><br>{{ chalet.location }}</a>
-                        <br>
                     </p>
                     <strong class="card-text price my-4">Price:€ {{ chalet.price }}</strong>
                     <a href="{% url 'chalet_detail' chalet.id %}" class="btn btn-primary btn-lg float-end">Reserve</a>
-
                 </div>
             </div>
         </div>
-        
+
         {% if forloop.counter|divisibleby:3 or forloop.last %}
     </div>{% endif %}
     {% endfor %}
-<!-- Back to top button -->
-<button type="button" class="btn btn-light btn-floating btn-lg" id="btn-back-to-top">
-    <i class="fa-solid fa-circle-arrow-up"></i>
-</button>
 
+    <!-- Back to top button -->
+    <button type="button" class="btn btn-light btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fa-solid fa-up-long"></i>
+    </button>
+    
 </section>
 
 {% endblock %}

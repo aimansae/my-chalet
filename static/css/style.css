@@ -2,6 +2,8 @@
 
 body {
     font-family: 'Merriweather Sans', sans-serif;
+    color:#fff;
+    background-color: black;
 }
 
 h1 {
@@ -12,13 +14,18 @@ h1 {
     width: 250px;
 }
 
-.navbar {
-    color: #fff;
+.navbar{
+    border-bottom:solid 1px #ffffff82;
 }
-
+/* CHACK */
 .navbar .navbar-toggler[aria-expanded="true"] {
 
     color: #fff;
+}
+
+.card{
+    background-color: transparent;
+    border-color: #e2d6d9;
 }
 
 .card-img-top {
@@ -55,7 +62,7 @@ hr {
 }
 
 h5.lead {
-    color: rgb(177, 17, 17);
+    color: rgb(255, 255, 255);
     font-weight: 900;
 }
 
@@ -69,7 +76,7 @@ p.lead {
     bottom: 9%;
     right: 3px;
     display: none;
-    background: transparent;
+    background: #fff;
     border: none
 }
 
@@ -86,6 +93,14 @@ footer a {
 
 /* buttons for my reservations.html*/
 
+.my-reservation-card{
+   
+
+}
+.btn{
+    background-color: #fff;
+    color:black;
+}
 .change{
     background-color: #48e138f0; 
     font-weight: 800;

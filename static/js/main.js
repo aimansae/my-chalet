@@ -1,4 +1,14 @@
-//Get the button
+// Set timeout for alrert messages
+
+
+   setTimeout(function () {
+     let messages = document.getElementById('msg');
+     let alert = new bootstrap.Alert(messages);
+     alert.close();
+   }, 3000);
+
+
+//For scroll up button
 let mybutton = document.getElementById("btn-back-to-top");
 
 // When the user scrolls down 20px from the top of the document, show the button
