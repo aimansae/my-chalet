@@ -1,5 +1,5 @@
 from . import views
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -9,6 +9,8 @@ urlpatterns = [
     path('my_reservations/', views.my_reservations, name="my_reservations"),
     path('edit_reservation/<int:reservation_id>/',
          views.edit_reservation, name="edit"),
+    path('delete_reservation/<int:reservation_id>/',
+         views.delete_reservation, name="delete"),
     path('delete_reservation/<int:reservation_id>/',
          views.delete_reservation, name="delete"),
 ]

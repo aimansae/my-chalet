@@ -8,7 +8,7 @@
 <div class="container mt-4 text-center ">
   <div class="row">
     <div class="col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 mb-5">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-body h-100">
           <h2 class="card-title">{% trans 'Are you sure you want to sign out?' %}</h2>
           <form method="post" action="{% url 'account_logout' %}">
@@ -17,8 +17,8 @@
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
             {% endif %}
             <div class="d-md-block text-center">
-              <a class="btn btn-primary change text-white" href="{% url 'home' %}">Return</a>
-              <button class="btn btn-primary delete text-white" type="submit">{% trans 'Sign Out' %}</button>
+              <a class="btn change text-white" href="{% url 'home' %}">Return</a>
+              <a class="btn delete text-white" href="{% url 'account_logout' %}">Yes</a>
             </div>
           </form>
 
