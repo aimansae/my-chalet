@@ -163,3 +163,12 @@ footer a {
     flex: 0 0 auto;
     width: 70%;
 }
+
+
+/* for card */ 
+@media (min-width: 1399.98px) {
+    .col-12{
+        width:33.33%
+    }
+
+}
