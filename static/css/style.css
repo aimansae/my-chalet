@@ -6,13 +6,11 @@ body {
     background-color: black;
 }
 
-h1 {
-    font-family: 'Raleway', sans-serif;
-}
-
 .logo {
     width: 250px;
 }
+
+
 
 .navbar{
     border-bottom:solid 1px #ffffff82;
@@ -23,6 +21,22 @@ h1 {
     color: #fff;
 }
 
+h1 {
+    font-family: 'Raleway', sans-serif;
+}
+hr {
+    width: 50%;
+    margin-left: 25%;
+}
+
+h5.lead {
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+}
+
+p.lead {
+    font-weight: 900;
+}
 .card{
     background-color: transparent;
     border-color: #e2d6d9;
@@ -43,7 +57,7 @@ h1 {
 .price {
     font-size: large;
 }
-
+/* card image zoomeffect */
 .zoomeffect {
     overflow: hidden;
 }
@@ -56,21 +70,8 @@ h1 {
     transform: scale(1.2);
 }
 
-hr {
-    width: 50%;
-    margin-left: 25%;
-}
-
-h5.lead {
-    color: rgb(255, 255, 255);
-    font-weight: 900;
-}
-
-p.lead {
-    font-weight: 900;
-}
-
 /* for back to top button*/
+
 #btn-back-to-top {
     position: fixed;
     bottom: 9%;
@@ -91,12 +92,8 @@ footer a {
 }
 
 
-/* buttons for my reservations.html*/
+/* buttons */
 
-.my-reservation-card{
-   
-
-}
 .btn{
     background-color: #fff;
     color:black;
@@ -105,11 +102,9 @@ footer a {
     background-color: #48e138f0; 
     font-weight: 800;
     border-color:#299b1df0;
-
 }
 .change:hover{
     background-color: #299b1df0; 
-
 
 }
 .delete{
@@ -127,6 +122,8 @@ footer a {
 .login-color{
     color:#fff
 }
+
+/* for messages */
 /* responsive design for smaller devices till 768px*/
 
 @media screen and (max-width:768px) {
@@ -166,13 +163,4 @@ footer a {
 @media (min-width: 768px){
     flex: 0 0 auto;
     width: 70%;
-}
-
-
-/* for card */ 
-@media (min-width: 1399.98px) {
-    .col-12{
-        width:33.33%
-    }
-
 }
