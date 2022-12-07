@@ -31,10 +31,22 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-#ALLOWED_HOSTS = ['my-chalet.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['my-chalet.herokuapp.com', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://8000-aimansae-mychalet-cmwev90wvp8.ws-eu77.gitpod.io/','https://my-chalet.herokuapp.com']
 
-ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://8000-aimansae-mychalet-cmwev90wvp8.ws-eu77.gitpod.io','https://my-chalet.herokuapp.com']
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+}
 
 
 # Application definition
