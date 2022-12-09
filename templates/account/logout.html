@@ -10,6 +10,7 @@
     <div class="col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 mb-5">
       <div class="card">
         <div class="card-body h-100">
+          <h2>{% trans "Sign Out" %}</h2>
           <h2 class="card-title">{% trans 'Are you sure you want to sign out?' %}</h2>
           <form method="POST" action="{% url 'account_logout' %}">
             {% csrf_token %}
@@ -18,7 +19,7 @@
             {% endif %}
             <div class="d-md-block text-center">
               <a class="btn change text-white" href="{% url 'home' %}">Return</a>
-              <a class="btn change text-white" type="submit">{% trans 'Sign Out' %}</a>
+              <button class="btn delete text-white" type="submit">{% trans 'Sign Out' %}</button>
             </div>
           </form>
 
