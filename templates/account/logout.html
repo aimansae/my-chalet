@@ -11,14 +11,14 @@
       <div class="card">
         <div class="card-body h-100">
           <h2 class="card-title">{% trans 'Are you sure you want to sign out?' %}</h2>
-          <form method="post" action="{% url 'account_logout' %}">
+          <form method="POST" action="{% url 'account_logout' %}">
             {% csrf_token %}
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
             {% endif %}
             <div class="d-md-block text-center">
               <a class="btn change text-white" href="{% url 'home' %}">Return</a>
-              <a class="btn delete text-white" href="{% url 'account_logout' %}">Yes</a>
+              <a class="btn change text-white" type="submit">{% trans 'Sign Out' %}</a>
             </div>
           </form>
 

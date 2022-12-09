@@ -152,4 +152,79 @@ If user doesnt have reservation requests, a message will be shown.
 
 ### Edit Reservation 
 
+If a user wants to change reservation, he can click on change and change the details as preferred. A confirmation message will be shown.
+
+FOTOOOO
+
 ### Delete Reservation 
+
+A user is also able to delete their reservation and modal requesting double confirmation will be shown.
+
+FOTOO
+
+
+## Future Features:
+
+  - [Reservation confirmation](https://github.com/aimansae/my-chalet/issues/9): once selected the desired date, an email will be sent to the user regarding the availability.
+
+  - [View more images](https://github.com/aimansae/my-chalet/issues/10): once the user will select click on a specific chalet to check the details, more images will be shown so they can consult the interior and all the services the structure provides.
+
+  - [Consult Reviews](https://github.com/aimansae/my-chalet/issues/11): user will be able to check and post reviews regarding a specific chalet.
+
+  - [Check Availability](https://github.com/aimansae/my-chalet/issues/12): while the user will be selecting the date a new calendar will appear showing availability for that specific date
+
+  - [Overbooking/Double Booking](https://github.com/aimansae/my-chalet/issues/13): important feature to implement as the adming will be able to show information regarding double bookings, overbooking and in addition to that will implement code to limit the number of reservation requests a user van send.
+
+  - Password Reset: a user will be able to reset their password, in case forgotten
+
+
+## Testing
+
+## Bugs
+
+## Technologies used
+
+### [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+### [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+### [Python v4](https://developer.mozilla.org/en-US/docs/Web/CSS)
+### [Javascript](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+## Frameworks and libraries:
+
+- [Django](https://docs.djangoproject.com/en/4.1/): The app is built using Python Django Framework
+- [Bootstrap 5](https://getbootstrap.com/): html pages styling and responsive design is achieved using bootstrap
+
+## Additional Resources:
+- Cloudinary database: used to store images
+- [Baslamiq](https://balsamiq.com/): used for Wireframes
+- Am I Responsive: for main picture showind responsivness on different devices
+
+## Development
+
+The site was created using [GitHub](https://github.com/). Here are the speps taken:
+
+- Sign in to GitHub
+- Code Institute Template() was used by clicking on 'Use this template'
+- Once the repo is created need to install Django and relevant libraries:
+
+Type in terminal:
+- pip3 install 'django<4' gunicorn
+- pip3 install dj_database_url==0.5.0 psycopg2
+- pip3 install dj3-cloudinary-storage
+- pip3 freeze --local > requirements.txt
+- django-admin startproject PROJ_NAME (my_chalet) . (dot to indicate we want to create the project in the current directory)
+- python3 manage.py startapp APP_NAME ('my_chalet_site')
+
+In setting.py file:
+- in INSTALLED_APPS section: add  the APP_NAME with coma: ''my_chalet_site',
+
+Need migrate the changes to the database by tyiping in terminal: 
+- python3 manage.py migrate
+
+To run the app type in terminal:
+- python3 manage.py runserver(Django upp successfully created page appears)
+
+
+
+
+

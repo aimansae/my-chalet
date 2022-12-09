@@ -29,10 +29,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['my-chalet.herokuapp.com', 'localhost', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://8000-aimansae-mychalet-cmwev90wvp8.ws-eu77.gitpod.io','https://my-chalet.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://aimansae-mychalet-cmwev90wvp8.ws-eu78.gitpod.io', 'https://my-chalet.herokuapp.com']
 
 LOGGING = {
     'version': 1,
