@@ -1,6 +1,6 @@
 # My Chalet
 
-Am I responsive image
+![AmIResponsive](static/images/readme/amiresponsive.png)
 
 ## Introduction
 
@@ -112,18 +112,23 @@ The main font used is [Merriweather Sans](https://fonts.google.com/specimen/Merr
 ### Navbar
 The navbar is recurrent in all the pages. It contains the customized logo and links to navigate throught the page: Home, Login, Logout and My Reservation page, only if the user is authenticated.
 
+if user is not logged in
+![Navbar](static/images/readme/navbar-no-login.png)
+
+If user is logged in, login link will disappear from the navigation and Log out page will be shown instead
+![Navbar](static/images/readme/navbar.png)
+
 ### Footer
 The footer is recurrent in all the pages as well. It contains links to social media for My Chalet website which open in a different tab
 
-FOTOOOOO
+![Footer](static/images/readme/footer.png)
 ### Login Page
 
 Login page presents a form so existing users can insert their credentials and log in to send a reservaion request or consult the ones already submitted. 
 If user doenst have an account, they will be show a link that directs the m to signup page
-FOTOOOOO
 
-If user is logged in, login link will disappear from the navigation and Log out page will be shown instead
-FOTOOOOO
+![Navbar](static/images/readme/login-page.png)
+
 
 If user wants to logout a confirmation page will be show, to actually log out or return to the main page
 FOTOO
