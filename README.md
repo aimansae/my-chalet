@@ -4,7 +4,7 @@ Am I responsive image
 
 ## Introduction
 
-My chalet is a fictional website designed for travel lovers. The purpose was to enhance user experience by gathering a list of the most and exclusive chalets available in Italy. A user can quickly find the most requested and famous mini hotels, just by visiting the site and send a request for availability for one night stay.
+My chalet is a fictional website designed for travel lovers. The purpose was to enhance user experience by gathering a list of the most exclusive chalets available in Italy. A user can quickly find the most requested and famous mini hotels, just by visiting the site and send a request for availability for one night stay.
 
 ## Live Site
 
@@ -34,24 +34,28 @@ The Repository can be found [HERE](https://github.com/aimansae/my-chalet)
   + [Navbar](#Navbar "Navbar") 
   + [Footer](#footer "Footer")
   + [Login Page](#login-page "Login Page") 
-  + [Signup Page](#signup-page "Signup Page") 
+  + [Fonts Page](#signup-page "Signup Page") 
   + [HomePage](#fonts "Fonts") 
   + [Description Page](#description-page "Description Page") 
   + [Reservation Page](#reservation-page "Reservation Page") 
   + [My Reservation Page](#my-reservations "My Reservations Page") 
   + [Edit Reservation ](#edit-reservation "Edit Reservation ") 
   + [Delete Reservation  ](#delete-reservation "Delete Reservation ") 
+  + [Future Features](#future-features "Future Features") 
++ [Testing](#testing "Testing")
+  + [Bugs](#bugs "Bugs")
+  + [Technologies used](#technologies-used "Technologies used")
+  + [Frameworks and libraries:](#frameworks-and-libraries: "Frameworks and libraries:")
+  + [Additional Resources](#additional-resources "Additional Resources")
++ [Deployment](#deployment "Deployment")
 
-
-
-    
 
 ## UX(User Experience)
 <hr>
 
 ### Scope:
 
-The overal purpose of the website is to spare users long researching online the best chalet for a special occasion. Users should be able to find the best option available in a timely manner, in the Country by visiting the website and be able to consult details regarding the chosen option and send a reservation request directly from the website. Therefore the purpose is clear and immediate.
+The overall purpose of the website is to spare users long researching online for the best chalet for a special occasion. Users should be able to find the best options available in the Country,in a timely manner,  by visiting the website and being able to consult details regarding the chosen option and ultimately send a reservation request directly from the website. Therefore the purpose is clear and immediate.
 
 ### [User Stories](https://github.com/users/aimansae/projects/5/views/1):
 
@@ -97,25 +101,25 @@ Add database schema
 
 ### Color Schema
 
-A background of black was used as main color to profive and elegant an fancy view and contrast with all the chalets images. 
+A background of black was used as main color to provide an elegant and fancy view and contrast with all the chalet images. 
 
 ### Fonts
 
-The main font used is [Merriweather Sans](https://fonts.google.com/specimen/Merriweather+Sans)', while all main H1 headings are styled with [Raleway Font](https://fonts.google.com/specimen/Raleway). The selection is made to keep the elegant and modern 
-look of the website.
+The main font used is [Merriweather Sans](https://fonts.google.com/specimen/Merriweather+Sans)', while all main H1 headings are styled with [Raleway Font](https://fonts.google.com/specimen/Raleway). The selection is made to keep the elegant and modern look of the website.
 
 ## Features
 
 ### Navbar
-The navbar is recurrent in all the pages. It contains the customized logo and links to navigate throught the page: Home, Login Logout and My Reservation page, only if the user is authenticated.
+The navbar is recurrent in all the pages. It contains the customized logo and links to navigate throught the page: Home, Login, Logout and My Reservation page, only if the user is authenticated.
 
 ### Footer
-The footer is recurrent in all the pages as well. It contains link to social media websites for My Chalet website that open in a different tab
+The footer is recurrent in all the pages as well. It contains links to social media for My Chalet website which open in a different tab
 
 FOTOOOOO
 ### Login Page
 
-Login page presents a form so existing users can insert their credentials and log in to send a reservaion request or consult the ones already submitted. If user doenst have an account, they will be show a link that directs the m to signup page
+Login page presents a form so existing users can insert their credentials and log in to send a reservaion request or consult the ones already submitted. 
+If user doenst have an account, they will be show a link that directs the m to signup page
 FOTOOOOO
 
 If user is logged in, login link will disappear from the navigation and Log out page will be shown instead
@@ -199,32 +203,108 @@ FOTOO
 - [Baslamiq](https://balsamiq.com/): used for Wireframes
 - Am I Responsive: for main picture showind responsivness on different devices
 
-## Development
+## Deployment
 
 The site was created using [GitHub](https://github.com/). Here are the speps taken:
 
 - Sign in to GitHub
-- Code Institute Template() was used by clicking on 'Use this template'
+- Code Institute Template was used by clicking on 'Use this template'
 - Once the repo is created need to install Django and relevant libraries:
 
-Type in terminal:
+### Packages:
+
 - pip3 install 'django<4' gunicorn
 - pip3 install dj_database_url==0.5.0 psycopg2
 - pip3 install dj3-cloudinary-storage
+- pip3 install django-allauth
 - pip3 freeze --local > requirements.txt
 - django-admin startproject PROJ_NAME (my_chalet) . (dot to indicate we want to create the project in the current directory)
 - python3 manage.py startapp APP_NAME ('my_chalet_site')
 
 In setting.py file:
-- in INSTALLED_APPS section: add  the APP_NAME with coma: ''my_chalet_site',
+- in INSTALLED_APPS section: add  the APP_NAME with coma: 'my_chalet_site',
 
-Need migrate the changes to the database by tyiping in terminal: 
+Need migrate the changes to the database by typing in terminal: 
 - python3 manage.py migrate
 
 To run the app type in terminal:
-- python3 manage.py runserver(Django upp successfully created page appears)
+- python3 manage.py runserver
+- opens site confirming 'Django app successfully created'
+
+## Heroku Deployment and database
+
+Create a database Heroku can access via ElephantSQL:
+
+- Log in to [ElephantSQL.com](https://www.elephantsql.com/) to access your dashboard
+- Click on “Create New Instance”
+- Set up your plan
+- Give the plan a Name (this is commonly the name of the project)
+- Select the Tiny Turtle (Free) plan
+- the Tags fields can be left blank
+- click “Select Region”
+- Select a data center near you
+- Click on “Review”
+- Verify your details and click “Create instance”
+- In ElephantSQL dashboard  click on the database instance name for this project
+- In the URL section, click the copy icon to copy the database URL(to be copied on Heroku Settings)
 
 
+**In gitpod:**
+- Create new env.py file on top level directory:  env.py
+ - in this file add code 'import os'
+- Set environment variables:
+os.environ["DATABASE_URL"] = "Paste in  DATABASE_URL Link  from ElephantSQL "
+- Add in secret key: 
+os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"
+- type in terminal 'python3 manage.py migrate'
+
+**In setting.py:** 
+- connect env.py file by typing:
+
+ import os
+ import dj_database_url
+ if os.path.isfile('env.py'):
+     import env
+- replace secret key with:
+ SECRET_KEY = os.environ.get('SECRET_KEY')
+- Comment out the original DATABASES variable and add:
+
+ DATABASES = {
+     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+ }
+- add Heroku to the ALLOWED_HOSTS in settings.py
+- create Procfile withcode : web: gunicorn PROJ_NAME.wsgi
+
+
+- save file and type:  python manage.py migrate
+
+- commit and push the project to Github
+
+
+- In ElephantSQL Dashboard:
+- Click on 'Browser' tab on the left
+- “Table queries” the list will be populated from your Django migrations.
+
+
+The site is deployed to **Heroku** through the following steps:
+
+- Log in to [Heroku](https://dashboard.heroku.com/apps) or create an account if required.
+on home pace e click the button labelled 'New' in the top right corner
+- From the drop-down menu select 'Create new app'.
+- Choose a unique app name.
+- Select the relevant geographical region.
+- Click on 'Create App'.
+
+- Go to 'Settings' tab and scroll down to the 'Config Vars' section.
+- Click on 'Reveal Config Vars' and enter 'PORT' for the key and '8000' for the value. Then click 'Add'.
+- Add CLOUDINARY_URL, DATABSE_URL and SECRET_KEY.
+
+**Connect Heroku** to gitpod:
+
+- Click on the 'Deploy' tab.
+- Select as 'Deployment method': 'GitHub'.
+- Search and Connect the relevant GitHub repository.
+- Under 'Manual deploy' choose the correct branch and click 'Deploy Branch'.
 
 
 

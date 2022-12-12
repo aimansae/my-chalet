@@ -7,8 +7,6 @@ from django.core.exceptions import ValidationError
 from django.core import validators
 
 
-
-
 CAPACITY = (
     ('1', '1'),
     ('2', '2'),
@@ -26,7 +24,6 @@ class ChaletList(models.Model):
     image = CloudinaryField('Image', default='placeholder')
     description = models.TextField(default='description', blank=False)
     price = models.DecimalField(null=True, max_digits=10, decimal_places=2)
-    chalet_images = CloudinaryField('Image', default='placeholder')
 
     def __str__(self):
         '''Returns chalets name and relative price from ChaletList class'''
@@ -39,7 +36,6 @@ class MakeReservation(models.Model):
             raise ValidationError("Date cannot be in the past")
         elif date == timezone.now().date():
             raise ValidationError("Date cannot be today")
-
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=None,
                              related_name='user_booking',)  # to remove null=True, default=None LATER
@@ -59,7 +55,6 @@ class MakeReservation(models.Model):
         now = timezone.now()
         return now + timedelta(days=1)
 
-    # OR .date()+timedelta(days=1)
     date = models.DateField(default=date_tomorrow, validators=[validation])
 
     def __str__(self):
