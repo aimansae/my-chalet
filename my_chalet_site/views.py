@@ -1,14 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, View
-from .models import ChaletList, MakeReservation  # SelectChalet
+from .models import ChaletList, MakeReservation
 from .forms import ReservationForm
 from django.contrib import messages
 
-# from django.views.generic import View
-
 
 def home(request):
-    '''Shows homepage with all chalets available'''
+    '''Shows homepage with all the available chalets by rendering the home.html page'''
+
     chalet_list = ChaletList.objects.all()
     context = {
         'chalet_list': chalet_list,
@@ -20,11 +19,8 @@ class ChaletDetail(View):
     '''shows detailed desciption of the selected chalet'''
 
     def get(self, request, chalet_id, *args, **kwargs):
-        # questo era gia cosi
-        # queryset = SelectChalet.objects.all()
-        # aggiunto dopo
+        
         queryset = ChaletList.objects.all()
-        # or chalet = ChaletList.objects.get(pk=chalet_id)
         chalet = get_object_or_404(queryset, pk=chalet_id)
         context = {
             'chalet': chalet, }
@@ -32,14 +28,12 @@ class ChaletDetail(View):
 
 
 def reservation(request, chalet_id):
-    '''allows the user form to make a reservation request'''
+    '''allows the user form to make a reservation request, first will show the selected chalet name and price'''
 
     chalet = ChaletList.objects.get(pk=chalet_id)
     name = ChaletList.name
     price = ChaletList.price
-# prima era cosi funzionava
     form = ReservationForm(initial={'selected_chalet': chalet_id})
-    # form = ReservationForm()
     user_reservation = chalet
 
     if request.method == 'POST':
@@ -80,13 +74,13 @@ def my_reservations(request):
         return render(request, 'my_reservations.html', context)
     else:
         # if user is not authenticated:
-        messages.success(request, ('Please login to access this page'))
+        messages.warning(request, ('Please login to access this page'))
         return redirect('../accounts/signup')
 
 
 def edit_reservation(request, reservation_id):
+    '''allows authenticated user to change reservation request. Can not modify the chalet, just the form input'''
     if request.user.is_authenticated:
-        # prima: reservations = MakeReservation.objects.get(pk=reservation_id)
         reservations = get_object_or_404(MakeReservation, pk=reservation_id)
 
         form = ReservationForm(instance=reservations)
@@ -104,14 +98,15 @@ def edit_reservation(request, reservation_id):
         return render(request, 'edit_reservation.html', context)
 
     else:
-        messages.success(request, ('Please log in to enter this page'))
+        messages.warning(request, ('Please log in to enter this page'))
         return redirect('accoount_login')
 
 
 def delete_reservation(request, reservation_id):
+    '''allows the user to delee their reservation request'''
 
     if request.user.is_authenticated:
         reservations = MakeReservation.objects.get(pk=reservation_id)
         reservations.delete()
-        messages.success(request, ('Reservation request deleted'))
+        messages.warning(request, ('Reservation request deleted'))
         return redirect('my_reservations')

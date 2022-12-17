@@ -6,50 +6,51 @@
 <h1 class="fst-italic text-uppercase text-center px-4">My Reservation Requests</h1>
 {% for reservation in reservations %}
 <div class="container mt-4">
-  <!-- {% if forloop.counter0|divisibleby:3 %} <div class="row"> {% endif %}-->
-    <div class="row"> 
-  <div class="col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 mb-5 ">
-    <div class="card text-center my-reservation-card">
-      <div class="card-body h-100">
-        <h3 class="pb-2">Selected chalet: {{reservation.selected_chalet}}</h3>
-        <p class="card-text fs-5">Full name: {{reservation.fname}}{{reservation.lname}}
-        <p class="card-text fs-5">Price: {{reservation.selected_chalet.price}}</p>
-        <p class="card-text fs-5">Selected people nr {{reservation.capacity}}</p>
-        <p class="card-text fs-5">Date: {{reservation.date}}</p>
-        <p class="card-text fs-5">Email: {{reservation.email}}</p>
-        <div class="d-grid gap-2 d-md-block">
-          <a href="{% url 'edit' reservation.id %}" class="btn btn-primary change text-white">Change <i class="fa-regular fa-pen-to-square"></i></a>
-          <a href="{% url 'delete' reservation.id %}" class="btn btn-primary delete text-white" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Delete <i class="fa-solid fa-trash"></i></a>
-        </div>
+  <div class="row">
+    <div class="col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 mb-5 ">
+      <div class="card text-center">
+        <div class="card-body h-100">
+          <h3 class="pb-2">Selected chalet: {{reservation.selected_chalet}}</h3>
+          <p class="card-text fs-5">Full name: {{reservation.fname}}{{reservation.lname}}
+          <p class="card-text fs-5">Price: {{reservation.selected_chalet.price}}</p>
+          <p class="card-text fs-5">Selected people nr {{reservation.capacity}}</p>
+          <p class="card-text fs-5">Date: {{reservation.date}}</p>
+          <p class="card-text fs-5">Email: {{reservation.email}}</p>
+          <div class="d-grid gap-2 d-md-block">
+            <a href="{% url 'edit' reservation.id %}" class="btn btn-primary change text-white">Change <i
+                class="fa-regular fa-pen-to-square"></i></a>
+            <a href="{% url 'delete' reservation.id %}" class="btn btn-primary delete text-white" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">Delete <i class="fa-solid fa-trash"></i></a>
+          </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Confirm Deletion</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <p>Are you sure you want to delete your request?</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary delete text-white" data-bs-dismiss="modal">No</button>
-                <a href="{% url 'delete' reservation.id %}"
-                  class="btn btn-primary change text-white">Yes</a>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Confirm Deletion</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-dark">
+                  <p>Are you sure you want to delete your request?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary delete text-white" data-bs-dismiss="modal">No</button>
+                  <a href="{% url 'delete' reservation.id %}" class="btn btn-primary change text-white">Yes</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
+
   </div>
- <!-- {% if forloop.counter|divisibleby:3 or forloop.last %}
-</div>{% endif %}-->
 </div>
-</div>
+
+<!--if there a user has no reservations yet-->
 {%empty%}
 
 <p class="lead text-center">You have no reservation requests at the moment</p>

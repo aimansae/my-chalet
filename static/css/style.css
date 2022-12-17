@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Merriweather Sans', sans-serif;
-    color:#fff;
+    color: #fff;
     background-color: black;
 }
 
@@ -10,20 +10,14 @@ body {
     width: 250px;
 }
 
-
-
-.navbar{
-    border-bottom:solid 1px #ffffff82;
-}
-/* CHACK */
-.navbar .navbar-toggler[aria-expanded="true"] {
-
-    color: #fff;
+.navbar {
+    border-bottom: solid 1px #ffffff82;
 }
 
 h1 {
     font-family: 'Raleway', sans-serif;
 }
+
 hr {
     width: 50%;
     margin-left: 25%;
@@ -37,7 +31,8 @@ h5.lead {
 p.lead {
     font-weight: 900;
 }
-.card{
+
+.card {
     background-color: transparent;
     border-color: #e2d6d9;
 }
@@ -52,12 +47,14 @@ p.lead {
     margin: 5px
 }
 
-/*for price in homepage cards*/
+/* price size in homepage cards*/
 
 .price {
     font-size: large;
 }
+
 /* card image zoomeffect */
+
 .zoomeffect {
     overflow: hidden;
 }
@@ -86,6 +83,7 @@ p.lead {
 }
 
 /* for footer */
+
 footer a {
     font-size: x-large;
     color: #fff;
@@ -94,37 +92,43 @@ footer a {
 
 /* buttons */
 
-.btn{
+.btn {
     background-color: #fff;
-    color:black;
+    color: black;
 }
-.change{
-    background-color: #48e138f0; 
+
+.change {
+    background-color: #48e138f0;
     font-weight: 800;
-    border-color:#299b1df0;
+    border-color: #299b1df0;
 }
-.change:hover{
-    background-color: #299b1df0; 
+
+.change:hover {
+    background-color: #299b1df0;
 
 }
-.delete{
+
+.delete {
     background-color: #eb3d3de0;
     font-weight: 800;
-    border-color:#f10741;
+    border-color: #f10741;
 }
 
-.delete:hover{
-    background-color: #f10741; ; 
+.delete:hover {
+    background-color: #f10741;
+    ;
 
 
 }
 
-.login-color{
-    color:#fff
+/* for errorlist message */
+
+ul.errorlist {
+    background-color: red;
 }
 
-/* for messages */
-/* responsive design for smaller devices till 768px*/
+
+/* responsive design for small devices till 768px*/
 
 @media screen and (max-width:768px) {
     .card-img-top {
@@ -152,15 +156,10 @@ footer a {
     }
 }
 
+/* responsive design devices till 991.98px*/
+
 @media (max-width: 991.98px) {
     .card {
         width: 100%;
     }
-}
-
-/* for chalet detail page*/
-
-@media (min-width: 768px){
-    flex: 0 0 auto;
-    width: 70%;
 }

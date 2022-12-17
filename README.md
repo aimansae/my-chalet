@@ -149,7 +149,8 @@ If user wants to logout a confirmation request will be shown, to confirm if the 
 
 Sign up page allows a non existing user to create an account in order to send a requet for reservation. if they lready have an account a link is shown to direct them to login page.
 
-FOTO
+![Signup-page](static/images/readme/signup-page.png)
+
 
 ### Homepage 
 The home page contains a small description specifying the purpose of the bage and appealing images showing all the 6 Chalets that were selected as the most wanted ones. Different images are present showing thechalets.
