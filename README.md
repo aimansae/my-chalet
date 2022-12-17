@@ -15,7 +15,7 @@ Please find the live site [HERE](https://my-chalet.herokuapp.com/)
 The Repository can be found [HERE](https://github.com/aimansae/my-chalet)
 
 ## Table Of Contents
-+ [Introductiion](#introduction "Introduction")
++ [Introduction](#introduction "Introduction")
     + [Live-site](#live-site "Live Site")
     + [Github-repository](#github-repository "Github Repository")
 + [UX](#ux "UX")
@@ -55,29 +55,31 @@ The Repository can be found [HERE](https://github.com/aimansae/my-chalet)
 
 ### Scope:
 
-The overall purpose of the website is to spare users long researching online for the best chalet for a special occasion. Users should be able to find the best options available in the Country,in a timely manner,  by visiting the website and being able to consult details regarding the chosen option and ultimately send a reservation request directly from the website. Therefore the purpose is clear and immediate.
+The overall purpose of the website is to spare users long researching online for the best chalet for a special occasion. Users should be able to find the best options available in the Country, in a timely manner,  by visiting the website and being able to consult details regarding the chosen option and ultimately send a reservation request directly from the website. Therefore the purpose is clear and immediate.
 
 ### [User Stories](https://github.com/users/aimansae/projects/5/views/1):
 
 ### As a first time user:
 
-- I can [access](https://github.com/aimansae/my-chalet/issues/1) to the website and see all the chalets the site has selected , ranked as the best ones. The site should be ituitive, immediate and provide all ignificant details about a chale in the home page.
+- I can [access](https://github.com/aimansae/my-chalet/issues/1) the website and see all the chalets the site has selected , ranked as the best ones. The site should be ituitive, immediate and provide all significant details about a chalet in the homepage.
 
 - I can [choose](https://github.com/aimansae/my-chalet/issues/2) the chalet I like and read detailed information before submitting a reservation request. (*future features to be included here..*)
 
 - I can [send](https://github.com/aimansae/my-chalet/issues/3) a reservation request selecting the desired date. (*future features to be included here..*)
 
+- I can [register](https://github.com/aimansae/my-chalet/issues/4) so I can send a registraton request.
+
 - I can [access](https://github.com/aimansae/my-chalet/issues/5) my reservations so that I can change or delete them
 
 - I can [edit](https://github.com/aimansae/my-chalet/issues/6) my reservations so that I can change them.
 
-- I can [delete](https://github.com/aimansae/my-chalet/issues/7) my reservations so that I can delete them
+- I can [delete](https://github.com/aimansae/my-chalet/issues/7) so I can remove a reservation request I submitted.
 
-- I can [delete](https://github.com/aimansae/my-chalet/issues/7) my reservations so that I can delete them
+
 
 ### As an existing user:
 
-- I can log in to my exixting account, consult the requests I sent change or delete them.
+- I can log in to my exixting account, consult the requests I sent,  change or delete them.
 - I can submit more reservation requests for the desired chalet
 
 ### As a site creator-admin:
@@ -99,9 +101,15 @@ Add flowchards and wireframes
 ### Database Schema
 Add database schema
 
+Database is created through 2 class based models:
+
+ChaletList: presents the main details regardin all the chalet available. Currently there are 6 available options, containing chalet name , location, description, image and price info.
+
+MakeReservation: contains a form requesing for user details in order to submit a reservation request: full name, email, phone, number of guests and date
+
 ### Color Schema
 
-A background of black was used as main color to provide an elegant and fancy view and contrast with all the chalet images. 
+A background of black was used as main color to provide an elegant and fancy view and contrast all the eye-catching chalet images. 
 
 ### Fonts
 
@@ -112,30 +120,36 @@ The main font used is [Merriweather Sans](https://fonts.google.com/specimen/Merr
 ### Navbar
 The navbar is recurrent in all the pages. It contains the customized logo and links to navigate throught the page: Home, Login, Logout and My Reservation page, only if the user is authenticated.
 
-if user is not logged in
+If user is not logged in:
+
 ![Navbar](static/images/readme/navbar-no-login.png)
 
-If user is logged in, login link will disappear from the navigation and Log out page will be shown instead
+If user is logged in, login link will disappear from the navigation and Log out page will be shown instead:
+
 ![Navbar](static/images/readme/navbar.png)
 
 ### Footer
-The footer is recurrent in all the pages as well. It contains links to social media for My Chalet website which open in a different tab
+The footer is recurrent in all the pages as well. It contains links to social media for My Chalet website which open in a different tab.
 
 ![Footer](static/images/readme/footer.png)
+
 ### Login Page
 
 Login page presents a form so existing users can insert their credentials and log in to send a reservaion request or consult the ones already submitted. 
-If user doenst have an account, they will be show a link that directs the m to signup page
+If user doesn't have an account, they will be show a link that directs them to signup page
 
-![Navbar](static/images/readme/login-page.png)
+![Login-page](static/images/readme/login-page.png)
 
 
-If user wants to logout a confirmation page will be show, to actually log out or return to the main page
-FOTOO
+If user wants to logout a confirmation request will be shown, to confirm if the user wants actually to log out or return to the main page
+
+![Logout-confirmation](static/images/readme/logout-confirmation.png)
+
 ### Sign Up Page
 
 Sign up page allows a non existing user to create an account in order to send a requet for reservation. if they lready have an account a link is shown to direct them to login page.
-FOTOOOOO
+
+FOTO
 
 ### Homepage 
 The home page contains a small description specifying the purpose of the bage and appealing images showing all the 6 Chalets that were selected as the most wanted ones. Different images are present showing thechalets.
@@ -147,29 +161,36 @@ FOTOO
 Once the user clicks on the desired chalet, a new page opens showig a detailed description and services the chalet offers, alonside with the price and a button to send a reservation request.
 FOTOOOOO
 
+
 ### Reservation page
 
 The reservation page form requires the user to insert their details and the date so that they can submit the request for reservation. For future feaures, the calendar will show the available dates and anfter sending the request a confirmation email will be sent to the user, ad a better ux experience.
-FOTOOOOO
+
+![reservation-form](static/images/readme/reservation-form.png)
 
 ### My Reservation Page
 
 For logged in users, my reservation page allows them to see all the reservation requests they sent. In addition to that users are able to change or delete a request.
-FOTOOOOO
 
-If user doesnt have reservation requests, a message will be shown.
+![my-reservations](static/images/readme/my-reservations.png)
+
+!!!!!!!TESTING
+IF NO ACCOUNT: MESSAGE
+!!!!!!!!!TESTING
+If user doesnt have reservation requests, a message will be shown stating that there are no reservations.
 
 ### Edit Reservation 
 
 If a user wants to change reservation, he can click on change and change the details as preferred. A confirmation message will be shown.
 
-FOTOOOO
+![change-reservations](static/images/readme/change-reservation.png)
 
 ### Delete Reservation 
 
 A user is also able to delete their reservation and modal requesting double confirmation will be shown.
 
-FOTOO
+![delete-reservations](static/images/readme/delete-reservation.png)
+
 
 
 ## Future Features:
@@ -186,6 +207,7 @@ FOTOO
 
   - Password Reset: a user will be able to reset their password, in case forgotten
 
+  - prefill forms with data provided during registration process, so Users will not have to input the same data all the time. 
 
 ## Testing
 
