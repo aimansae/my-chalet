@@ -45,7 +45,7 @@ The Repository can be found [HERE](https://github.com/aimansae/my-chalet)
 + [Testing](#testing "Testing")
   + [Bugs](#bugs "Bugs")
   + [Technologies used](#technologies-used "Technologies used")
-  + [Frameworks and libraries:](#frameworks-and-libraries: "Frameworks and libraries:")
+  + [Frameworks and libraries](#frameworks-and-libraries "Frameworks and libraries")
   + [Additional Resources](#additional-resources "Additional Resources")
 + [Deployment](#deployment "Deployment")
 
@@ -127,9 +127,9 @@ Edit-Delete-logout Confirmation
 
 Database is created through 2 class based models:
 
-ChaletList: presents the main details regardin all the chalet available. Currently there are 6 available options, containing chalet name , location, description, image and price info.
+ChaletList: presents the main details regarding all the chalet available. Currently there are 6 available options, containing chalet name , location, description, image and price info.
 
-MakeReservation: contains a form requesing for user details in order to submit a reservation request: full name, email, phone, number of guests and date
+MakeReservation: contains a form requesing for user details in order to submit a reservation request: full name, email, phone, number of guests and date. A foreign key is userd for user, and selectd_chalet linking to ChaletList Model, to retrieve which chalet user selected.
 
 <details>
 <summary><strong>Database Schema</strong></summary>
@@ -248,14 +248,54 @@ A user is also able to delete their reservation and modal requesting double conf
   - While editing, user will be able to change the chalet itself, and not just the form input data.
 
 ## Testing
+Manual testing was conducted to check website functionality and festures.
 
+<details>
+<summary><strong>Show Tests</strong></summary>
+<br>
+
+|   | Pass/Fail |
+| ------------- | :----: |
+| My Chalet Logo directs to homepage correctly  |  Pass |
+| Navbar Home link directs to homepage correctly  |  Pass |
+| Navbar Login link directs to homepage correctly  |  Pass |
+| Navbar Register link directs to homepage correctly  |  Pass |
+| Footer socialmedia links open the relative social media in a new tab correctly  |  Pass |
+| >>>>>Location links open google maps link in a different tap correctly  |  Pass |
+| Footer socialmedia links open the relative social media in a new tab correctly  |  Pass |
+| Form fields are validated correctly, empty or incorrect fields show warning  |  Pass |
+| Reserve button on Homepage opens the selected chalet page showing all the relavant deails correctly  |  Pass |
+| Reserve button on Chalet Detail page shows the form to send a reservationrequest correctly  |  Pass |
+| Form fields are validate correctly  |  Pass |
+| Form atutomatically prefills on load date from tomorrow  correctly, as intended  |  Pass |
+![Date validation](static/images/readme/testing/date-testing.png)
+| If a user selects past date a warning message is shown correctly |  Pass |
+![Past-datevalidation](static/images/readme/testing/past-date-testing.png)
+| If a user selects today's date a warning message is shown correctly |  Pass |
+![Today-date-validation](static/images/readme/testing/today-date-testing.png)
+| If form is correct, a message stating reservation sent is shown correctly  FOTO|  Pass |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
 ## Bugs
 
 ## Technologies used
 
 ### [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
 ### [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
-### [Python v4](https://developer.mozilla.org/en-US/docs/Web/CSS)
+### [Python](https://developer.mozilla.org/en-US/docs/Web/CSS)
 ### [Javascript](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 ## Frameworks and libraries:
@@ -264,12 +304,15 @@ A user is also able to delete their reservation and modal requesting double conf
 - [Bootstrap 5](https://getbootstrap.com/): html pages styling and responsive design is achieved using bootstrap
 
 ## Additional Resources:
-- Cloudinary database: used to store images
+- [Cloudinary](https://cloudinary.com/i) database: used to store images
 - [Baslamiq](https://balsamiq.com/): used for Wireframes
-- Am I Responsive: for main picture showind responsivness on different devices
+- [Cacoo.com](https://cacoo.com/): used for database diagram representation
+- [Am I Responsive](https://ui.dev/amiresponsive): for main picture showind responsivness on different devices
 
 ## Deployment
-
+<details>
+<summary><strong>Deployment</strong></summary>
+<br>
 The site was created using [GitHub](https://github.com/). Here are the speps taken:
 
 - Sign in to GitHub
@@ -339,10 +382,7 @@ os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"
  }
 - add Heroku to the ALLOWED_HOSTS in settings.py
 - create Procfile withcode : web: gunicorn PROJ_NAME.wsgi
-
-
 - save file and type:  python manage.py migrate
-
 - commit and push the project to Github
 
 
@@ -372,4 +412,4 @@ on home pace e click the button labelled 'New' in the top right corner
 - Under 'Manual deploy' choose the correct branch and click 'Deploy Branch'.
 
 
-
+</details>

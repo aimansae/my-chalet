@@ -21,6 +21,8 @@ class ChaletList(models.Model):
         'Chalet Name', max_length=150, blank=False, unique=True)
     location = models.CharField(
         max_length=150, default='location', blank=False)
+    location_url = models.CharField(
+        max_length=150, default='location', blank=False)
     image = CloudinaryField('Image', default='placeholder')
     description = models.TextField(default='description', blank=False)
     price = models.DecimalField(null=True, max_digits=10, decimal_places=2)
