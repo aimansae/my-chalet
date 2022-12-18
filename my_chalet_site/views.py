@@ -98,8 +98,10 @@ def edit_reservation(request, reservation_id):
         return render(request, 'edit_reservation.html', context)
 
     else:
-        messages.warning(request, ('Please log in to enter this page'))
-        return redirect('accoount_login')
+        # if user is not authenticated:
+        messages.warning(request, ('Please login to access this page'))
+        return redirect('account_login')
+
 
 
 def delete_reservation(request, reservation_id):

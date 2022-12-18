@@ -258,22 +258,59 @@ Manual testing was conducted to check website functionality and festures.
 | ------------- | :----: |
 | My Chalet Logo directs to homepage correctly  |  Pass |
 | Navbar Home link directs to homepage correctly  |  Pass |
-| Navbar Login link directs to homepage correctly  |  Pass |
-| Navbar Register link directs to homepage correctly  |  Pass |
-| Footer socialmedia links open the relative social media in a new tab correctly  |  Pass |
-| >>>>>Location links open google maps link in a different tap correctly  |  Pass |
-| Footer socialmedia links open the relative social media in a new tab correctly  |  Pass |
+| Navbar Login link directs to login page correctly  |  Pass |
+| Navbar Register link directs to sign up page correctly  |  Pass |
+| Footer social media links open the relative social media in a new tab correctly  |  Pass |
+| Location links open google maps links in a different tab correctly  |  Pass |
+| Successfully logged in and registered message shown after user logs in  |  Pass |
+!Llogin-Confirm](static/images/readme/testing/login-confirm-message.png)
+
+| Successfully signed out message is shown correctly  |  Pass |
+![Signout-confirm](static/images/readme/testing/signout-confirm-message.png)
+
 | Form fields are validated correctly, empty or incorrect fields show warning  |  Pass |
-| Reserve button on Homepage opens the selected chalet page showing all the relavant deails correctly  |  Pass |
-| Reserve button on Chalet Detail page shows the form to send a reservationrequest correctly  |  Pass |
-| Form fields are validate correctly  |  Pass |
+| Reserve button on Homepage opens the selected chalet page showing all the relavant details correctly  |  Pass |
+| Reserve button on Chalet Detail page shows the form to send a reservation request correctly  |  Pass |
+| Upon selecting the chalet, the form shows the related chalet name and prices correctly  |  Pass |
+| Form fields are validated correctly  |  Pass |
 | Form atutomatically prefills on load date from tomorrow  correctly, as intended  |  Pass |
-![Date validation](static/images/readme/testing/date-testing.png)
+
+![Date-validation](static/images/readme/testing/date-testing.png)
 | If a user selects past date a warning message is shown correctly |  Pass |
+
 ![Past-datevalidation](static/images/readme/testing/past-date-testing.png)
 | If a user selects today's date a warning message is shown correctly |  Pass |
+
 ![Today-date-validation](static/images/readme/testing/today-date-testing.png)
-| If form is correct, a message stating reservation sent is shown correctly  FOTO|  Pass |
+| If form is correct and user sends reservation request, the message stating reservation sent is shown correctly  |  Pass |
+
+![Reservation-sent-message](static/images/readme/testing/reservation-sent-message.png)
+| If authenticated user updates the reservation, the confirmation message is shown correctly  |  Pass |
+
+![update-message](static/images/readme/testing/update-confirm-message.png)
+
+| If authenticated user wants to delete the reservationthe confirmation modal is shown correctly and deletion confirm message appears |  Pass |
+
+![delete-message](static/images/readme/testing/delete-confirm-message.png
+
+| Once the user delets the request, he is correctly directed back to my reservations page  |  Pass |
+
+| If user has no reservations yet and opens my reservation page, the message stating 'No Reservations' is shown correctly |  Pass |
+
+![no-reservations-message](static/images/readme/testing/no-reservations-message.png)
+
+| If non authenticated users try to access both my_reservations page or edit_reservation page, a warning appear, requesting them to be regisered or logged in to access the page|  Pass |
+
+![Nonauth-user](static/images/readme/testing/page-access-warning.png)
+
+| When new user is created, this is correctly shown on admin panel|  Pass |
+
+![User-created](static/images/readme/testing/user-created-admin.png)
+
+| When a new user submits a reservation request, edits, deletes, this is correctly shown on admin panel|  Pass |
+
+![Reservation-sent](static/images/readme/testing/reservation-sent-admin.png)
+
 
 
 

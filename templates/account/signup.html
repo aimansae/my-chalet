@@ -14,13 +14,13 @@
       <p class="login-color">{% blocktrans %} Already have an account? Then please <a href="{{ login_url }}">Log
           in</a>{% endblocktrans %}
 
-      <form method="POST" action="{% url 'account_signup' %}">
+      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="btn btn-primary float-right" type="submit">{% trans "Sign Up" %} &raquo;</button>
+        <button class="btn btn-primary float-right" type="submit">{% trans "Sign Up" %}&raquo;</button>
       </form>
     </div>
   </div>
