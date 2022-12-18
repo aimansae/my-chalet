@@ -73,7 +73,7 @@ The overall purpose of the website is to spare users long researching online for
 
 - I can [edit](https://github.com/aimansae/my-chalet/issues/6) my reservations so that I can change them.
 
-- I can [delete](https://github.com/aimansae/my-chalet/issues/7) so I can remove a reservation request I submitted.
+- I can [delete](https://github.com/aimansae/my-chalet/issues/7) so I can remove a reservation request I submitted. 
 
 
 
@@ -96,16 +96,49 @@ The development was made using the principles of agile methodology. User stories
 ## Design
 
 ### Wireframes
-Add flowchards and wireframes
+The site was created based on a first skeleton. The main idea was to create 6 cards on homepage showing the chalet options, and then by clicking on 'Reserve button' a detailed dscription is available. Authenticated users can submit a reservation request, while non registered or logged in wil have to first make an account. CRUD functionality was taken in account, therefore a user can manage the reservation by changing data sent in the form or delete the request.
+
+<details>
+<summary><strong>Wireframes</strong></summary>
+<br>
+
+HomePage:
+![Homepage-Wireframe](static/images/readme/homepage-wireframe.PNG)
+
+Chalet Details
+![Chalet-Details-Wireframe](static/images/readme/chalet%20detail-wireframe.png)
+
+LoginSignup
+![Login-Signup-Wireframe](static/images/readme/login-sigup%20pages-wireframe.png)
+
+Send Reservation
+![Send-Reservation-Wireframe](static/images/readme/send-reservation-wireframe.png)
+
+My Reservations
+![My-Reservations-Wireframe](static/images/readme/manage-reservation-wireframe.png)
+
+Edit-Delete-logout Confirmation
+![Edit-Delete-Wireframe](static/images/readme/delete-logout-popup-wiref.png)
+
+</details>
+<br>
 
 ### Database Schema
-Add database schema
 
 Database is created through 2 class based models:
 
 ChaletList: presents the main details regardin all the chalet available. Currently there are 6 available options, containing chalet name , location, description, image and price info.
 
 MakeReservation: contains a form requesing for user details in order to submit a reservation request: full name, email, phone, number of guests and date
+
+<details>
+<summary><strong>Database Schema</strong></summary>
+<br>
+
+![Database-Schema](static/images/readme/database-erd.png)
+
+</details>
+<br>
 
 ### Color Schema
 
@@ -156,12 +189,14 @@ Sign up page allows a non existing user to create an account in order to send a 
 The home page contains a small description specifying the purpose of the bage and appealing images showing all the 6 Chalets that were selected as the most wanted ones. Different images are present showing thechalets.
 The user can click on button 'Reserve' an will be directed to another page showing more details regarding the selected chalet.
 
-FOTOO
+![Homepage](static/images/readme/homepage-description.png)
+![Chalet-list](static/images/readme/chalet-list.png)
+
 
 ### Description Page
 Once the user clicks on the desired chalet, a new page opens showig a detailed description and services the chalet offers, alonside with the price and a button to send a reservation request.
-FOTOOOOO
-
+![Chalet-detail1](static/images/readme/chalet-detail1.png)
+![Chalet-detail2](static/images/readme/chalet-detail2.png)
 
 ### Reservation page
 
@@ -190,7 +225,7 @@ If a user wants to change reservation, he can click on change and change the det
 
 A user is also able to delete their reservation and modal requesting double confirmation will be shown.
 
-![delete-reservations](static/images/readme/delete-reservation.png)
+![delete-reservations](static/images/readme/delete-confirmation.png)
 
 
 
@@ -208,7 +243,9 @@ A user is also able to delete their reservation and modal requesting double conf
 
   - Password Reset: a user will be able to reset their password, in case forgotten
 
-  - prefill forms with data provided during registration process, so Users will not have to input the same data all the time. 
+  - Prefill forms with data provided during registration process, so Users will not have to input the same data all the time. 
+
+  - While editing, user will be able to change the chalet itself, and not just the form input data.
 
 ## Testing
 
@@ -241,7 +278,7 @@ The site was created using [GitHub](https://github.com/). Here are the speps tak
 
 ### Packages:
 
-- pip3 install 'django<4' gunicorn
+- pip3 install 'django' gunicorn
 - pip3 install dj_database_url==0.5.0 psycopg2
 - pip3 install dj3-cloudinary-storage
 - pip3 install django-allauth
