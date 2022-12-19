@@ -44,6 +44,10 @@ The Repository can be found [HERE](https://github.com/aimansae/my-chalet)
   + [Future Features](#future-features "Future Features") 
 + [Testing](#testing "Testing")
   + [Validation Testing](#validation-testing "Validation Testing")
+   + [HTML Validation](#html-validation "HTML Validation")
+   + [CSS Validation](#css-validation "CSS Validation")
+   + [Python Validation](#python-validation "Python Validation")
+   + [Lighthouse Report](#lighthouse-report "Lighthouse Report")
   + [Manual Testing](#manual-testing "Manual Testing")
 + [Bugs](#bugs "Bugs")
 + [Technologies used](#technologies-used "Technologies used")
@@ -247,7 +251,26 @@ A user is also able to delete their reservation and modal requesting double conf
 
 ## Testing
 
-### Validaion Testing
+### Validation Testing
+
+### HTML Validation
+
+HTML validation was made through [W3 HTML Validator](https://bit.ly/3PFwFJx) through Chrome View Page Source.
+The test passed with 0 errors.
+![HTML-Validator](static/images/readme/testing/html-validator.png)
+
+### CSS Validation
+
+Css Validation passed throug [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) showing 0 errors
+![CSS-Validator](static/images/readme/testing/css-validator.png)
+
+### Python Validation
+
+Python testing was done through pycodestyle, showing no errors.
+During testing some errors were identified:
+- Extra whitespace was deleted
+- Some Indentation was corrected
+- All lines adjusted to <80 characters. In views.py the message 'Thank you, your reservation request is submitted, we will contact you shortly!!' is the only code exceeding the limit.
 
 ### LightHouse Report: 
 Lighthouse report was done for all site pages and presented different suggestions to enhance website accessibility.
@@ -361,8 +384,38 @@ Manual testing was conducted to check website functionality and features.
 
 
 </details>
-## Bugs
 
+## BUGS
+
+<details>
+<summary><strong>Show Bugs</strong></summary>
+<br>
+1.While initially deploying to heroku push failed with the following error:<br>
+
+*Failed to build backports.zoneinfo* <br>
+
+Detaild ERROR: Could not build wheels for backports.zoneinfo, which is required to install pyproject.toml-based projects
+!     Push rejected, failed to compile Python app.
+Seps taken:
+ - Checked Python Version Using Python -V command 
+ - created  runtime.txt file in root directory and add “python-3.8.10”
+ - committed and push again
+Deployed, but another error appeard: 
+
+Requested runtime 'python-3.8.10' is not available for this stack (heroku-22).
+!     For supported versions, see: https://devcenter.heroku.com/articles/python-support
+!     Push rejected, failed to compile Python app.
+Thanks to tutor help, ran the following commands to fix:
+ - Login to the Heroku CLI via the terminal: heroku login -i
+ - run command: heroku stack:set heroku-20 -a my_app_name
+
+Deployed again >> FIXED
+
+2. while running command python3 manage.py faced Django error
+CSRF verification failed. Request aborted
+- Fixed by inserting the updated SRF_TRUSTED_ORIGINS = ['https://8000-aimansae-mychalet-cmwev90wvp8.ws-eu79.gitpod.io'] link
+
+</details>
 ## Technologies used
 
 ### [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
@@ -485,3 +538,5 @@ on home pace e click the button labelled 'New' in the top right corner
 
 
 </details>
+
+[Back to Top](#table-of-contents)

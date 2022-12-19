@@ -6,7 +6,9 @@ from django.contrib import messages
 
 
 def home(request):
-    '''Shows homepage with all the available chalets by rendering the home.html page'''
+    '''Shows homepage with all the available chalets
+    by rendering the home.html page
+    '''
 
     chalet_list = ChaletList.objects.all()
     context = {
@@ -19,7 +21,7 @@ class ChaletDetail(View):
     '''shows detailed desciption of the selected chalet'''
 
     def get(self, request, chalet_id, *args, **kwargs):
-        
+
         queryset = ChaletList.objects.all()
         chalet = get_object_or_404(queryset, pk=chalet_id)
         context = {
@@ -28,7 +30,9 @@ class ChaletDetail(View):
 
 
 def reservation(request, chalet_id):
-    '''allows the user form to make a reservation request, first will show the selected chalet name and price'''
+    '''allows the user form to make a reservation request,
+    first will show the selected chalet name and price
+    '''
 
     chalet = ChaletList.objects.get(pk=chalet_id)
     name = ChaletList.name
@@ -79,7 +83,9 @@ def my_reservations(request):
 
 
 def edit_reservation(request, reservation_id):
-    '''allows authenticated user to change reservation request. Can not modify the chalet, just the form input'''
+    '''allows authenticated user to change reservation request.
+    Can not modify the chalet, just the form input
+    '''
     if request.user.is_authenticated:
         reservations = get_object_or_404(MakeReservation, pk=reservation_id)
 
@@ -101,7 +107,6 @@ def edit_reservation(request, reservation_id):
         # if user is not authenticated:
         messages.warning(request, ('Please login to access this page'))
         return redirect('account_login')
-
 
 
 def delete_reservation(request, reservation_id):

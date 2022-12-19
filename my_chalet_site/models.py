@@ -39,8 +39,9 @@ class MakeReservation(models.Model):
         elif date == timezone.now().date():
             raise ValidationError("Date cannot be today")
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=None,
-                             related_name='user_booking',)  # to remove null=True, default=None LATER
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_booking',)
+    # to remove null=True, default=None LATER
 
     selected_chalet = models.ForeignKey(
         ChaletList, on_delete=models.CASCADE, null=True)
