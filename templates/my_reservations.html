@@ -10,10 +10,10 @@
     <div class="col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 mb-5 ">
       <div class="card text-center">
         <div class="card-body h-100">
-          <h3 class="pb-2">Selected chalet: {{reservation.selected_chalet}}</h3>
+          <h2 class="pb-2">Selected chalet:<br>{{reservation.selected_chalet}}</h2>
           <p class="card-text fs-5">Full name: {{reservation.fname}}{{reservation.lname}}
-          <p class="card-text fs-5">Price: {{reservation.selected_chalet.price}}</p>
-          <p class="card-text fs-5">Selected people nr {{reservation.capacity}}</p>
+          <p class="card-text fs-5">Price: €{{reservation.selected_chalet.price}}</p>
+          <p class="card-text fs-5">Guest nr: {{reservation.capacity}}</p>
           <p class="card-text fs-5">Date: {{reservation.date}}</p>
           <p class="card-text fs-5">Email: {{reservation.email}}</p>
           <div class="d-grid gap-2 d-md-block">
