@@ -415,6 +415,22 @@ Deployed again >> FIXED
 CSRF verification failed. Request aborted
 - Fixed by inserting the updated SRF_TRUSTED_ORIGINS = ['https://8000-aimansae-mychalet-cmwev90wvp8.ws-eu79.gitpod.io'] link
 
+3. Homepage cards text was not alligned to each other, inserded vootstrap class 'justify-content-between' to respolve.
+
+4. Django form date validation presented various Issues. Validation error messages were not showing:
+ - Imported from dango validators to fix it See [Validator Documentation](https://docs.djangoproject.com/en/4.1/ref/validators/)
+Date did not prefill automatically with future date(tomorrow) as intended:
+- Fixed by adding on form.py file, a widget, with an initial value.
+5. Django reservation form was not getting the specific chalet that user selected. Inserted another model field on MakeReservation (selected_chalet) with a foreign Key connected to ChaletList Model to access the date and the render it on reservation.html template.
+
+6. Edit view was not rendering due to url error on edit_reservation.html. Initially the code used was {% url 'edit' reservations.id %}, hoever needed to access the loop variable 'reservation' therefore corrected with the following code {% url 'edit' reservation.id %}
+
+7. After inserting all chalet images on homepage, the deployment to heroku did not work and static file was connected wrongly. I had {% static '/css/style.css' %} instead of {% static 'css/style.css' %}.
+
+8. Due to  {% if forloop.counter|divisibleby:3 %} on home.html, chalet cards on medium devices were rendering wrongly. A list of 2, 1, 2,1 was being displayed. Removed the counter loop code as bootstrap classes were already displaying 2 cards per row. Now on medium devices 2 chalet per row are showing,as intended.
+
+9. 
+
 </details>
 ## Technologies used
 
