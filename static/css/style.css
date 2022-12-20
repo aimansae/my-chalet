@@ -67,21 +67,6 @@ p.lead {
     transform: scale(1.2);
 }
 
-/* for back to top button*/
-
-#btn-back-to-top {
-    position: fixed;
-    bottom: 9%;
-    right: 3px;
-    display: none;
-    background: #fff;
-    border: none
-}
-
-.fa-arrow-up {
-    background: transparent;
-}
-
 /* for footer */
 
 footer a {
@@ -146,13 +131,6 @@ ul.errorlist {
 
     .zoomeffect:hover img {
         transform: scale(1.2);
-    }
-
-    /* for back to top button*/
-
-    #btn-back-to-top {
-        bottom: 12%;
-        right: 1px;
     }
 }
 
