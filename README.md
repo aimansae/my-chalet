@@ -1,6 +1,6 @@
 # My Chalet
 
-![AmIResponsive](static/images/readme/amiresponsive.png)
+![AmIResponsive](readme/amiresponsive.png)
 
 ## Introduction
 
@@ -53,6 +53,7 @@ The Repository can be found [HERE](https://github.com/aimansae/my-chalet)
 + [Technologies used](#technologies-used "Technologies used")
   + [Frameworks and libraries](#frameworks-and-libraries "Frameworks and libraries")
 + [Additional Resources](#additional-resources "Additional Resources")
++ [Development](#Development "Development")
 + [Deployment](#deployment "Deployment")
 
 
@@ -109,22 +110,22 @@ The site was created based on a first skeleton. The main idea was to create 6 ca
 <br>
 
 HomePage:
-![Homepage-Wireframe](static/images/readme/homepage-wireframe.PNG)
+![Homepage-Wireframe](readme/homepage-wireframe.PNG)
 
 Chalet Details
-![Chalet-Details-Wireframe](static/images/readme/chalet%20detail-wireframe.png)
+![Chalet-Details-Wireframe](readme/chalet%20detail-wireframe.png)
 
 Login Signup
-![Login-Signup-Wireframe](static/images/readme/login-sigup%20pages-wireframe.png)
+![Login-Signup-Wireframe](readme/login-sigup%20pages-wireframe.png)
 
 Send Reservation
-![Send-Reservation-Wireframe](static/images/readme/send-reservation-wireframe.png)
+![Send-Reservation-Wireframe](readme/send-reservation-wireframe.png)
 
 My Reservations
-![My-Reservations-Wireframe](static/images/readme/manage-reservation-wireframe.png)
+![My-Reservations-Wireframe](readme/manage-reservation-wireframe.png)
 
 Edit-Delete-logout Confirmation
-![Edit-Delete-Wireframe](static/images/readme/delete-logout-popup-wiref.png)
+![Edit-Delete-Wireframe](readme/delete-logout-popup-wiref.png)
 
 </details>
 <br>
@@ -136,13 +137,13 @@ Database is created through 2 class based models:
 ChaletList: presents the main details regarding all the chalet available. Currently there are 6 available options, containing chalet name , location, description, image and price info.
 Admin can obviously add more chalets, delete or edit information directly via admin panel.
 
-MakeReservation: contains a form requesing for user details in order to submit a reservation request: full name, email, phone, number of guests and date. A foreign key is userd for user, and selectd_chalet linking to ChaletList Model, to retrieve which chalet user selected.
+MakeReservation: contains a form requesing for user details in order to submit a reservation request: full name, email, phone, number of guests and date. A foreign key is used for user, and selectd_chalet linking to ChaletList Model, to retrieve which chalet user selected.
 
 <details>
 <summary><strong>Database Schema</strong></summary>
 <br>
 
-![Database-Schema](static/images/readme/erd-database.png)
+![Database-Schema](readme/testing/erd-diagran.png)
 
 </details>
 <br>
@@ -162,72 +163,72 @@ The navbar is recurrent in all the pages. It contains the customized logo and li
 
 If user is not logged in:
 
-![Navbar](static/images/readme/navbar-no-login.png)
+![Navbar](readme/navbar-no-login.png)
 
 If user is logged in, login link will disappear from the navigation and Log out page will be shown instead, alongside with my reservations page:
 
-![Navbar](static/images/readme/navbar.png)
+![Navbar](readme/navbar.png)
 
 ### Footer
 The footer is recurrent in all the pages as well. It contains links to social media for My Chalet website which open in a different tab.
 
-![Footer](static/images/readme/footer.png)
+![Footer](readme/footer.png)
 
 ### Login Page
 
 Login page presents a form so existing users can insert their credentials and log in to send a reservation request or consult the ones they already submitted. 
 If user doesn't have an account, they will be shown a link that directs them to signup page.
 
-![Login-page](static/images/readme/login-page.png)
+![Login-page](readme/login-page.png)
 
 
 If user wants to logout a confirmation request will be shown, to confirm if the user wants actually to log out or return to the main page
 
-![Logout-confirmation](static/images/readme/logout-confirmation.png)
+![Logout-confirmation](readme/logout-confirmation.png)
 
 ### Sign Up Page
 
 Sign up page allows a non existing user to create an account in order to send a request for reservation. If they already have an account a link is shown to direct them to login page.
 
-![Signup-page](static/images/readme/signup-page.png)
+![Signup-page](readme/signup-page.png)
 
 
 ### Homepage 
 The home page contains a small description specifying the purpose of the site and presents appealing images showing all the 6 Chalets that were chosen as the best ones. 
 The user can click on button 'Reserve' an will be directed to another page showing more details regarding the selected chalet.
 
-![Homepage](static/images/readme/homepage-description.png)
-![Chalet-list](static/images/readme/chalet-list.png)
+![Homepage](readme/homepage-description.png)
+![Chalet-list](readme/chalet-list.png)
 
 
 ### Description Page
 Once the user clicks on the desired chalet, a new page opens showing a detailed description and services the chalet offers, alonside with the price and a button to send a reservation request.
-![Chalet-detail1](static/images/readme/chalet-detail1.png)
-![Chalet-detail2](static/images/readme/chalet-detail2.png)
+![Chalet-detail1](readme/chalet-detail1.png)
+![Chalet-detail2](readme/chalet-detail2.png)
 
 ### Reservation page
 
 The reservation page form requires the user to insert their details and the date desired so that they can submit the request for reservation. For future feaures, the calendar will show the available dates and anfter sending the request a confirmation email will be sent to the user, providing a better user experience.
 
-![reservation-form](static/images/readme/reservation-form.png)
+![reservation-form](readme/reservation-form.png)
 
 ### My Reservation Page
 
 For logged in users, my reservation page allows them to see all the reservation requests they sent. In addition to that users are able to change or delete a request.
 
-![my-reservations](static/images/readme/my-reservations.png)
+![my-reservations](readme/my-reservations.png)
 
 ### Edit Reservation 
 
 If a user wants to change reservation, he can click on 'change' button and change the details as preferred. A confirmation message will be shown after the request has been updated.
 
-![change-reservations](static/images/readme/change-reservation.png)
+![change-reservations](readme/change-reservation.png)
 
 ### Delete Reservation 
 
 A user is also able to delete their reservation and modal requesting double confirmation will be shown.
 
-![delete-reservations](static/images/readme/delete-confirmation.png)
+![delete-reservations](readme/delete-confirmation.png)
 
 
 
@@ -257,12 +258,12 @@ A user is also able to delete their reservation and modal requesting double conf
 
 HTML validation was made through [W3 HTML Validator](https://bit.ly/3PFwFJx) through Chrome View Page Source.
 The test passed with 0 errors.
-![HTML-Validator](static/images/readme/testing/html-validator.png)
+![HTML-Validator](readme/testing/html-validator.png)
 
 ### CSS Validation
 
 Css Validation passed throug [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) showing 0 errors
-![CSS-Validator](static/images/readme/testing/css-validator.png)
+![CSS-Validator](readme/testing/css-validator.png)
 
 ### Python Validation
 
@@ -278,7 +279,7 @@ Lighthouse report was done for all site pages and presented different suggestion
  - aria-* attributes do not match their roles: fixed this by changing aria'label description on 'A tags' and not on icons
  - logo image did not have alt text: added it 
  
-![Lighthouse-Report](static/images/readme/testing/lighthouse-report.png)
+![Lighthouse-Report](readme/testing/lighthouse-report.png)
 
 
 ### Manual testing
@@ -298,12 +299,12 @@ Manual testing was conducted to check website functionality and features.
 | Footer social media links open the relative social media in a new tab correctly  |  Pass |
 | Location links open google maps links in a different tab correctly  |  Pass |
 | Successfully logged in and registered message shown after user logs in  |  Pass |
-![login-Confirm](static/images/readme/testing/login-confirm-message.png)
+![login-Confirm](readme/testing/login-confirm-message.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | Successfully signed out message is shown correctly  |  Pass |
-![Signout-confirm](static/images/readme/testing/signout-confirm-message.png)
+![Signout-confirm](readme/testing/signout-confirm-message.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
@@ -313,73 +314,61 @@ Manual testing was conducted to check website functionality and features.
 | Upon selecting the chalet, the form shows the related chalet name and prices correctly  |  Pass |
 | Form automatically prefills on load date from tomorrow  correctly, as intended  |  Pass |
 
-![Date-validation](static/images/readme/testing/date-testing.png)
+![Date-validation](readme/testing/date-testing.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | If a user selects past date a warning message is shown correctly |  Pass |
-![Past-datevalidation](static/images/readme/testing/past-date-testing.png)
+![Past-datevalidation](readme/testing/past-date-testing.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | If a user selects today's date a warning message is shown correctly |  Pass |
 
-![Today-date-validation](static/images/readme/testing/today-date-testing.png)
+![Today-date-validation](readme/testing/today-date-testing.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | If form is correct and user sends reservation request, the message stating reservation sent is shown correctly  |  Pass |
 
-![Reservation-sent-message](static/images/readme/testing/reservation-sent-message.png)
+![Reservation-sent-message](readme/testing/reservation-sent-message.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | If authenticated user updates the reservation, the confirmation message is shown correctly  |  Pass |
 
-![update-message](static/images/readme/testing/update-confirm-message.png)
+![update-message](readme/testing/update-confirm-message.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | If authenticated user wants to delete the reservationthe confirmation modal is shown correctly and deletion confirm message appears |  Pass |
 
-![delete-message](static/images/readme/testing/delete-confirm-message.png)
+![delete-message](readme/testing/delete-confirm-message.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | Once the user delets the request, he is correctly directed back to my reservations page  |  Pass |
 | If user has no reservations yet and opens my reservation page, the message stating 'No Reservations' is shown correctly |  Pass |
 
-![no-reservations-message](static/images/readme/testing/no-reservations-message.png)
+![no-reservations-message](readme/testing/no-reservations-message.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | If non authenticated users try to access both my_reservations page or edit_reservation page, a warning appear, requesting them to be regisered or logged in to access the page|  Pass |
 
-![Nonauth-user](static/images/readme/testing/page-access-warning.png)
+![Nonauth-user](readme/testing/page-access-warning.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | When new user is created, this is correctly shown on admin panel|  Pass |
 
-![User-created](static/images/readme/testing/user-created-admin.png)
+![User-created](readme/testing/user-created-admin.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
 | When a new user submits a reservation request, edits, deletes, this is correctly shown on admin panel|  Pass |
 
-![Reservation-sent](static/images/readme/testing/reservation-sent-admin.png)
-
-
-
-
-
-
-
-
-
-
-
-
+![Reservation-sent](readme/testing/reservation-sent-admin.png)
 
 
 
@@ -415,7 +404,7 @@ Deployed again >> FIXED
 CSRF verification failed. Request aborted
 - Fixed by inserting the updated SRF_TRUSTED_ORIGINS = ['https://8000-aimansae-mychalet-cmwev90wvp8.ws-eu79.gitpod.io'] link
 
-3. Homepage cards text was not alligned to each other, inserded vootstrap class 'justify-content-between' to respolve.
+3. Homepage cards text was not alligned to each other, inserted Bootstrap class 'justify-content-between' to resolve.
 
 4. Django form date validation presented various Issues. Validation error messages were not showing:
  - Imported from dango validators to fix it See [Validator Documentation](https://docs.djangoproject.com/en/4.1/ref/validators/)
@@ -423,15 +412,18 @@ Date did not prefill automatically with future date(tomorrow) as intended:
 - Fixed by adding on form.py file, a widget, with an initial value.
 5. Django reservation form was not getting the specific chalet that user selected. Inserted another model field on MakeReservation (selected_chalet) with a foreign Key connected to ChaletList Model to access the date and the render it on reservation.html template.
 
-6. Edit view was not rendering due to url error on edit_reservation.html. Initially the code used was {% url 'edit' reservations.id %}, hoever needed to access the loop variable 'reservation' therefore corrected with the following code {% url 'edit' reservation.id %}
+6. Edit view was not rendering due to url error on edit_reservation.html. Initially the code used was {% url 'edit' reservations.id %}, however needed to access the loop variable 'reservation' therefore corrected with the following code {% url 'edit' reservation.id %}
 
-7. After inserting all chalet images on homepage, the deployment to heroku did not work and static file was connected wrongly. I had {% static '/css/style.css' %} instead of {% static 'css/style.css' %}.
+7. After inserting all chalet images on homepage, the deployment to heroku did not render images correctly because static file was connected wrongly. I had {% static '/css/style.css' %} instead of {% static 'css/style.css' %}.
 
-8. Due to  {% if forloop.counter|divisibleby:3 %} on home.html, chalet cards on medium devices were rendering wrongly. A list of 2, 1, 2,1 was being displayed. Removed the counter loop code as bootstrap classes were already displaying 2 cards per row. Now on medium devices 2 chalet per row are showing,as intended.
+8. Due to  {% if forloop.counter|divisibleby:3 %} on home.html, chalet cards on medium devices were rendering wrongly. A list of 2, 1, 2,1 was being displayed. Removed the counter loop code as Bootstrap classes were already displaying 2 cards per row. Now on medium devices 2 chalet per row are showing,as intended.
 
-9. 
+9. Js code for Timeout function presented TypeError: cannot read properties of null (reading 'close'): 
+ - checked if element by ID 'msg' was present on html file, 
+ - Fixed error with if (messages) statement: setimeout function was requiren only for specific moments, when messages were appearing, therefore if statement resolved the isusue.
 
 </details>
+
 ## Technologies used
 
 ### [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
@@ -444,15 +436,43 @@ Date did not prefill automatically with future date(tomorrow) as intended:
 - [Django](https://docs.djangoproject.com/en/4.1/): The app is built using Python Django Framework
 - [Bootstrap 5](https://getbootstrap.com/): html pages styling and responsive design is achieved using bootstrap
 
-## Additional Resources:
+## Additional Resources and Credits:
 - [Cloudinary](https://cloudinary.com/i) database: used to store images
 - [Baslamiq](https://balsamiq.com/): used for Wireframes
 - [Cacoo.com](https://cacoo.com/): used for database diagram representation
 - [Am I Responsive](https://ui.dev/amiresponsive): for main picture showind responsivness on different devices
--[Dev Optimize](https://web.dev/optimize-cls/): for suggestion to fix Lighthouse report bugs
+- [Dev Optimize](https://web.dev/optimize-cls/): for suggestion to fix Lighthouse report bugs
+- Several youtube videos were consulted for a better Django understanding:
+ - [Django Course for Beginners](https://www.youtube.com/watch?v=rHux0gMZ3Eg&ab_channel=ProgrammingwithMosh) 
+ - [Database Relationship](https://www.youtube.com/watch?v=wIPHER2UBB4&t=4s&ab_channel=DennisIvy) to render chalet name and price on the form, therefore created selected_chalet field on MakeReservation Model.
+ - [Foreign Key](https://bit.ly/3HUriEt) explaination to connect MakeReservation model to ChaletList through selected_chalet field
+ - [Django Date Validation](https://joshuahunter.com/posts/formatting-date-fields-in-django/)
+ - [Upload Images](https://www.youtube.com/watch?v=O5YkEFLXcRg&t=253s&ab_channel=Codemy.com) to check seting requirements and how to upload imges folter on templates.
+ -[Pexel.com](https://www.pexels.com/) used for images
+ - A huge credit goes to mentors Martina T. and Rohit S. who helped me with great suggestions, documentation and resources in order to deliver the project respecting the assessment criterias. 
+ - Code Institute Tutors were highly consulted, especilly for reservation and edit functionality.
+ - Code Institute Slack channel was consulted for advices, error resolution and project ideas.
+
+ ## Development
+<details>
+<summary><strong>Show Development</strong></summary>
+<br>
+This project was developed through Gitpod, using the template provided by Code Institute. Every step was documented and pushed thoroughly via GitHub. These are the steps:
+
+Log into [GitHub](https://github.com/)
+Open Code Institute [Template](https://github.com/Code-Institute-Org/gitpod-full-template)
+
+- Click on 'Create new Repository'
+- Choose adeguate name
+- Add a description (optional)
+- Make sure the repository is Public
+- Click on 'Create Repository from this template'
+- Once the page is loaed click on Gitpod to run the workspace
+</details>
+
 ## Deployment
 <details>
-<summary><strong>Deployment</strong></summary>
+<summary><strong>Show Deployment</strong></summary>
 <br>
 The site was created using [GitHub](https://github.com/). Here are the speps taken:
 

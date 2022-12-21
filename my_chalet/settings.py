@@ -33,7 +33,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['my-chalet.herokuapp.com', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-aimansae-mychalet-cmwev90wvp8.ws-eu79.gitpod.io', 'https://my-chalet.herokuapp.com']
+    'https://8000-aimansae-mychalet-cmwev90wvp8.ws-eu80.gitpod.io', 'https://my-chalet.herokuapp.com']
 
 LOGGING = {
     'version': 1,

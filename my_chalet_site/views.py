@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, View
 from .models import ChaletList, MakeReservation
 from .forms import ReservationForm
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
@@ -39,7 +40,7 @@ def reservation(request, chalet_id):
     price = ChaletList.price
     form = ReservationForm(initial={'selected_chalet': chalet_id})
     user_reservation = chalet
-
+  
     if request.method == 'POST':
         form = ReservationForm(data=request.POST)
 
@@ -82,38 +83,42 @@ def my_reservations(request):
         return redirect('../accounts/signup')
 
 
+@login_required
 def edit_reservation(request, reservation_id):
     '''allows authenticated user to change reservation request.
     Can not modify the chalet, just the form input
     '''
-    if request.user.is_authenticated:
-        reservations = get_object_or_404(MakeReservation, pk=reservation_id)
+    # if request.user.is_authenticated:
+    reservations = get_object_or_404(
+        MakeReservation, pk=reservation_id, user=request.user)
 
-        form = ReservationForm(instance=reservations)
+    form = ReservationForm(instance=reservations)
 
-        if request.method == 'POST':
-            form = ReservationForm(request.POST, instance=reservations)
-            if form.is_valid():
-                form.save()
-                messages.success(request, ('Reservation Updated'))
-                return redirect('my_reservations')
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=reservations)
+        if form.is_valid():
+            form.save()
+            messages.success(request, ('Reservation Updated'))
+            return redirect('my_reservations')
 
-        context = {'form': form,
-                   'reservations': reservations}
+    context = {'form': form,
+               'reservations': reservations}
 
-        return render(request, 'edit_reservation.html', context)
+    return render(request, 'edit_reservation.html', context)
 
-    else:
-        # if user is not authenticated:
-        messages.warning(request, ('Please login to access this page'))
-        return redirect('account_login')
+    # else:
+    # if user is not authenticated:
+    # messages.warning(request, ('Please login to access this page'))
+    # return redirect('account_login')
 
 
+@ login_required
 def delete_reservation(request, reservation_id):
-    '''allows the user to delee their reservation request'''
+    '''allows the user to delete their reservation request'''
 
-    if request.user.is_authenticated:
-        reservations = MakeReservation.objects.get(pk=reservation_id)
-        reservations.delete()
-        messages.warning(request, ('Reservation request deleted'))
-        return redirect('my_reservations')
+    # if request.user.is_authenticated:
+    reservations = MakeReservation.objects.get(
+        pk=reservation_id, user=request.user)
+    reservations.delete()
+    messages.warning(request, ('Reservation request deleted'))
+    return redirect('my_reservations')
