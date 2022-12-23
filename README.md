@@ -302,6 +302,8 @@ Manual testing was conducted to check website functionality and features.
 | Footer social media links open the relative social media in a new tab correctly  |  Pass |
 | Location links open google maps links in a different tab correctly  |  Pass |
 | Successfully logged in and registered message shown after user logs in  |  Pass |
+| All feedback messages are disappiaring after 3000s as intended  |  Pass |
+
 ![login-Confirm](readme/testing/login-confirm-message.png)
 
 |   | Pass/Fail |
