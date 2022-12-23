@@ -71,7 +71,7 @@ The overall purpose of the website is to spare users online long researching  fo
 
 ### As a first time user:
 
-- I can [access](https://github.com/aimansae/my-chalet/issues/1) the website and see all the chalets the site has selected, ranked as the best ones. The site should be ituitive, immediate and provide all significant details about a chalet in the homepage.
+- I can [access](https://github.com/aimansae/my-chalet/issues/1) the website and see all the chalets the site has selected, ranked as the best ones. The site should be intuitive, immediate and provide all significant details about a chalet in the homepage.
 
 - I can [choose](https://github.com/aimansae/my-chalet/issues/2) the chalet I like and read detailed information before submitting a reservation request. (*future features to be included here..*)
 
@@ -140,7 +140,7 @@ Database is created through 2 class based models:
 ChaletList: presents the main details regarding all the chalet available. Currently there are 6 available options, containing chalet name , location, description, image and price info.
 Admin can obviously add more chalets, delete or edit information directly via admin panel.
 
-MakeReservation: contains a form requesing for user details in order to submit a reservation request: full name, email, phone, number of guests and date. A foreign key is used for user, and selectd_chalet linking to ChaletList Model, to retrieve which chalet user selected.
+MakeReservation: contains a form requesting for user details in order to submit a reservation request: full name, email, phone, number of guests and date. A foreign key is used for user, and selectd_chalet linking to ChaletList Model, to retrieve which chalet user selected.
 
 <details>
 <summary><strong>Database Schema</strong></summary>
@@ -162,7 +162,7 @@ The main font used is [Merriweather Sans](https://fonts.google.com/specimen/Merr
 ## Features
 
 ### Navbar
-The navbar is recurrent in all the pages. It contains the customized logo and links to navigate throught the page: Home, Login, Logout and My Reservation page, only if the user is authenticated.
+The navbar is recurrent in all the pages. It contains the customized logo and links to navigate through the page: Home, Login, Logout and My Reservation page, only if the user is authenticated.
 
 If user is not logged in:
 
@@ -198,20 +198,20 @@ Sign up page allows a non existing user to create an account in order to send a 
 
 ### Homepage 
 The home page contains a small description specifying the purpose of the site and presents appealing images showing all the 6 Chalets that were chosen as the best ones. 
-The user can click on button 'Reserve' an will be directed to another page showing more details regarding the selected chalet.
+The user can click on button 'Reserve' and will be directed to another page showing more details regarding the selected chalet.
 
 ![Homepage](readme/homepage-description.png)
 ![Chalet-list](readme/chalet-list.png)
 
 
 ### Description Page
-Once the user clicks on the desired chalet, a new page opens showing a detailed description and services the chalet offers, alonside with the price and a button to send a reservation request.
+Once the user clicks on the desired chalet, a new page opens showing a detailed description and services the chalet offers, alongside with the price and a button to send a reservation request.
 ![Chalet-detail1](readme/chalet-detail1.png)
 ![Chalet-detail2](readme/chalet-detail2.png)
 
 ### Reservation page
 
-The reservation page form requires the user to insert their details and the date desired so that they can submit the request for reservation. For future feaures, the calendar will show the available dates and anfter sending the request a confirmation email will be sent to the user, providing a better user experience.
+The reservation page form requires the user to insert their details and the date desired so that they can submit the request for reservation. For future features, the calendar will show the available dates and after sending the request a confirmation email will be sent to the user, providing a better user experience.
 
 ![reservation-form](readme/reservation-form.png)
 
@@ -312,7 +312,7 @@ Manual testing was conducted to check website functionality and features.
 |   | Pass/Fail |
 | ------------- | :----: |
 | Form fields are validated correctly, empty or incorrect fields show warnings  |  Pass |
-| Reserve button on Homepage opens the selected chalet page showing all the relavant details correctly  |  Pass |
+| Reserve button on Homepage opens the selected chalet page showing all the relevant details correctly  |  Pass |
 | Reserve button on Chalet Detail page shows the form to send a reservation request correctly  |  Pass |
 | Upon selecting the chalet, the form shows the related chalet name and prices correctly  |  Pass |
 | Form automatically prefills on load date from tomorrow  correctly, as intended  |  Pass |
@@ -344,13 +344,13 @@ Manual testing was conducted to check website functionality and features.
 
 |   | Pass/Fail |
 | ------------- | :----: |
-| If authenticated user wants to delete the reservationthe confirmation modal is shown correctly and deletion confirm message appears |  Pass |
+| If authenticated user wants to delete the reservation the confirmation modal is shown correctly and deletion confirm message appears |  Pass |
 
 ![delete-message](readme/testing/delete-confirm-message.png)
 
 |   | Pass/Fail |
 | ------------- | :----: |
-| Once the user delets the request, he is correctly directed back to my reservations page  |  Pass |
+| Once the user deletes the request, he is correctly directed back to my reservations page  |  Pass |
 | If user has no reservations yet and opens my reservation page, the message stating 'No Reservations' is shown correctly |  Pass |
 
 ![no-reservations-message](readme/testing/no-reservations-message.png)
@@ -407,10 +407,10 @@ Deployed again >> FIXED
 CSRF verification failed. Request aborted
 - Fixed by inserting the updated SRF_TRUSTED_ORIGINS = ['https://8000-aimansae-mychalet-cmwev90wvp8.ws-eu79.gitpod.io'] link
 
-3. Homepage cards text was not alligned to each other, inserted Bootstrap class 'justify-content-between' to resolve.
+3. Homepage cards text was not aligned to each other, inserted Bootstrap class 'justify-content-between' to resolve.
 
 4. Django form date validation presented various Issues. Validation error messages were not showing:
- - Imported from dango validators to fix it See [Validator Documentation](https://docs.djangoproject.com/en/4.1/ref/validators/)
+ - Imported from django validators to fix it See [Validator Documentation](https://docs.djangoproject.com/en/4.1/ref/validators/)
 
 - Date did not prefill automatically with future date(tomorrow) as intended:
 - Fixed by adding on form.py file, a widget, with an initial value.
@@ -425,14 +425,14 @@ CSRF verification failed. Request aborted
 
 9. Js code for Timeout function presented TypeError: cannot read properties of null (reading 'close'): 
 + checked if element by ID 'msg' was present on html file, 
-+ Fixed error with if (messages) statement: setimeout function was requiren only for specific moments, when messages were appearing, therefore if statement resolved the isusue.
++ Fixed error with if (messages) statement: SeTimeout function was required only for specific moments, when messages were appearing, therefore if statement resolved the issue.
 
 10. Installed django phonefield however this caused migration errors. Replaced the phone field with CharField, add min-max length and NumberInput of form.
 
 ## Known Bug-Issues
 
 1. Phone Field to be implemented back by replacing CharField with relative regex pattern for phone validation
-2. Double reservations to be avoided for for future features.
+2. Double reservations to be avoided for future features.
 
 </details>
 
@@ -452,14 +452,14 @@ CSRF verification failed. Request aborted
 - [Cloudinary](https://cloudinary.com/i) database: used to store images
 - [Baslamiq](https://balsamiq.com/): used for Wireframes
 - [Cacoo.com](https://cacoo.com/): used for database diagram representation
-- [Am I Responsive](https://ui.dev/amiresponsive): for main picture showind responsivness on different devices
+- [Am I Responsive](https://ui.dev/amiresponsive): for main picture showing responsiveness on different devices
 - [Dev Optimize](https://web.dev/optimize-cls/): for suggestion to fix Lighthouse report bugs
 - Several youtube videos were consulted for a better Django understanding:
  - [Django Course for Beginners](https://www.youtube.com/watch?v=rHux0gMZ3Eg&ab_channel=ProgrammingwithMosh) 
  - [Database Relationship](https://www.youtube.com/watch?v=wIPHER2UBB4&t=4s&ab_channel=DennisIvy) to render chalet name and price on the form, therefore created selected_chalet field on MakeReservation Model.
- - [Foreign Key](https://bit.ly/3HUriEt) explaination to connect MakeReservation model to ChaletList through selected_chalet field
+ - [Foreign Key](https://bit.ly/3HUriEt) explanation to connect MakeReservation model to ChaletList through selected_chalet field
  - [Django Date Validation](https://joshuahunter.com/posts/formatting-date-fields-in-django/)
- - [Upload Images](https://www.youtube.com/watch?v=O5YkEFLXcRg&t=253s&ab_channel=Codemy.com) to check seting requirements and how to upload imges folter on templates.
+ - [Upload Images](https://www.youtube.com/watch?v=O5YkEFLXcRg&t=253s&ab_channel=Codemy.com) to check setting requirements and how to upload images folder on templates.
  -[Pexel.com](https://www.pexels.com/) used for images
  
 
@@ -474,11 +474,11 @@ Log into [GitHub](https://github.com/)
 Open Code Institute [Template](https://github.com/Code-Institute-Org/gitpod-full-template)
 
 - Click on 'Create new Repository'
-- Choose adeguate name
+- Choose aqeguate name
 - Add a description (optional)
 - Make sure the repository is Public
 - Click on 'Create Repository from this template'
-- Once the page is loaed click on Gitpod to run the workspace
+- Once the page is loaded click on 'Gitpod' to run the workspace
 </details>
 
 ## Deployment
@@ -587,10 +587,12 @@ on home pace e click the button labelled 'New' in the top right corner
 
 ## Final Deployment:
 Turn Debug mode on setting.py to False
+In Heroku settings, delete the config vars for DISABLE_COLLECTSTATIC = 1
+
 
 ## Credits
-- A huge credit goes to mentors Martina T. and Rohit S. who helped me with great suggestions, documentation and resources in order to deliver the project respecting the assessment criterias. 
- - Code Institute Tutors were highly consulted, especilly for reservation and edit functionality.
+- A huge credit goes to mentors Martina T. and Rohit S. who helped me with great suggestions, documentation and resources in order to deliver the project respecting the assessment criteria. 
+ - Code Institute Tutors were highly consulted, especially for reservation and edit functionality.
  - Code Institute Slack channel was consulted for advices, error resolution and project ideas.
- 
+
 [Back to Top](#table-of-contents)
