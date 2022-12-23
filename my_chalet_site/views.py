@@ -40,7 +40,7 @@ def reservation(request, chalet_id):
     price = ChaletList.price
     form = ReservationForm(initial={'selected_chalet': chalet_id})
     user_reservation = chalet
-  
+
     if request.method == 'POST':
         form = ReservationForm(data=request.POST)
 

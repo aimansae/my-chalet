@@ -4,7 +4,7 @@
 
 ## Introduction
 
-My chalet is a fictional website designed for travel lovers. The purpose was to enhance user experience by gathering a list of the most exclusive chalets available in Italy. A user can quickly find the most requested and famous mini hotels, just by visiting the site and send a request for availability for one night stay.
+My chalet is a fully responsive fictional website designed for travel lovers. The purpose was to enhance user experience by gathering a list of the most exclusive chalets available in Italy. A user can quickly find the most requested and famous mini hotels, just by visiting the site and send a request for availability for one night stay.
 
 ## Live Site
 
@@ -50,11 +50,14 @@ The Repository can be found [HERE](https://github.com/aimansae/my-chalet)
    + [Lighthouse Report](#lighthouse-report "Lighthouse Report")
   + [Manual Testing](#manual-testing "Manual Testing")
 + [Bugs](#bugs "Bugs")
+   + [Known Bug-Issues](#known-bug-issues "Known Bug-Issues")
 + [Technologies used](#technologies-used "Technologies used")
   + [Frameworks and libraries](#frameworks-and-libraries "Frameworks and libraries")
 + [Additional Resources](#additional-resources "Additional Resources")
-+ [Development](#Development "Development")
++ [Development](#Development "Known Bug-Issues")
 + [Deployment](#deployment "Deployment")
+ + [Final Deployment](#final-deployment "Final Deployment")
++ [Credits](#credits "Credits")
 
 
 ## UX(User Experience)
@@ -408,8 +411,10 @@ CSRF verification failed. Request aborted
 
 4. Django form date validation presented various Issues. Validation error messages were not showing:
  - Imported from dango validators to fix it See [Validator Documentation](https://docs.djangoproject.com/en/4.1/ref/validators/)
-Date did not prefill automatically with future date(tomorrow) as intended:
+
+- Date did not prefill automatically with future date(tomorrow) as intended:
 - Fixed by adding on form.py file, a widget, with an initial value.
+
 5. Django reservation form was not getting the specific chalet that user selected. Inserted another model field on MakeReservation (selected_chalet) with a foreign Key connected to ChaletList Model to access the date and the render it on reservation.html template.
 
 6. Edit view was not rendering due to url error on edit_reservation.html. Initially the code used was {% url 'edit' reservations.id %}, however needed to access the loop variable 'reservation' therefore corrected with the following code {% url 'edit' reservation.id %}
@@ -419,8 +424,15 @@ Date did not prefill automatically with future date(tomorrow) as intended:
 8. Due to  {% if forloop.counter|divisibleby:3 %} on home.html, chalet cards on medium devices were rendering wrongly. A list of 2, 1, 2,1 was being displayed. Removed the counter loop code as Bootstrap classes were already displaying 2 cards per row. Now on medium devices 2 chalet per row are showing,as intended.
 
 9. Js code for Timeout function presented TypeError: cannot read properties of null (reading 'close'): 
- - checked if element by ID 'msg' was present on html file, 
- - Fixed error with if (messages) statement: setimeout function was requiren only for specific moments, when messages were appearing, therefore if statement resolved the isusue.
++ checked if element by ID 'msg' was present on html file, 
++ Fixed error with if (messages) statement: setimeout function was requiren only for specific moments, when messages were appearing, therefore if statement resolved the isusue.
+
+10. Installed django phonefield however this caused migration errors. Replaced the phone field with CharField, add min-max length and NumberInput of form.
+
+## Known Bug-Issues
+
+1. Phone Field to be implemented back by replacing CharField with relative regex pattern for phone validation
+2. Double reservations to be avoided for for future features.
 
 </details>
 
@@ -436,7 +448,7 @@ Date did not prefill automatically with future date(tomorrow) as intended:
 - [Django](https://docs.djangoproject.com/en/4.1/): The app is built using Python Django Framework
 - [Bootstrap 5](https://getbootstrap.com/): html pages styling and responsive design is achieved using bootstrap
 
-## Additional Resources and Credits:
+## Additional Resources:
 - [Cloudinary](https://cloudinary.com/i) database: used to store images
 - [Baslamiq](https://balsamiq.com/): used for Wireframes
 - [Cacoo.com](https://cacoo.com/): used for database diagram representation
@@ -449,9 +461,7 @@ Date did not prefill automatically with future date(tomorrow) as intended:
  - [Django Date Validation](https://joshuahunter.com/posts/formatting-date-fields-in-django/)
  - [Upload Images](https://www.youtube.com/watch?v=O5YkEFLXcRg&t=253s&ab_channel=Codemy.com) to check seting requirements and how to upload imges folter on templates.
  -[Pexel.com](https://www.pexels.com/) used for images
- - A huge credit goes to mentors Martina T. and Rohit S. who helped me with great suggestions, documentation and resources in order to deliver the project respecting the assessment criterias. 
- - Code Institute Tutors were highly consulted, especilly for reservation and edit functionality.
- - Code Institute Slack channel was consulted for advices, error resolution and project ideas.
+ 
 
  ## Development
 <details>
@@ -573,8 +583,14 @@ on home pace e click the button labelled 'New' in the top right corner
 - Select as 'Deployment method': 'GitHub'.
 - Search and Connect the relevant GitHub repository.
 - Under 'Manual deploy' choose the correct branch and click 'Deploy Branch'.
-
-
 </details>
 
+## Final Deployment:
+Turn Debug mode on setting.py to False
+
+## Credits
+- A huge credit goes to mentors Martina T. and Rohit S. who helped me with great suggestions, documentation and resources in order to deliver the project respecting the assessment criterias. 
+ - Code Institute Tutors were highly consulted, especilly for reservation and edit functionality.
+ - Code Institute Slack channel was consulted for advices, error resolution and project ideas.
+ 
 [Back to Top](#table-of-contents)
