@@ -242,7 +242,7 @@ A user is also able to delete their reservation and modal requesting double conf
 
   - [Check Availability](https://github.com/aimansae/my-chalet/issues/12): while the user will be selecting the date a new calendar will appear showing availability for that specific date
 
-  - [Overbooking/Double Booking](https://github.com/aimansae/my-chalet/issues/13): important feature to implement as the adming will be able to show information regarding double bookings, overbooking and in addition to that will implement code to limit the number of reservation requests a user van send.
+  - [Overbooking/Double Booking](https://github.com/aimansae/my-chalet/issues/13): important feature to implement as the admin will be able to show information regarding double bookings, overbooking and in addition to that will implement code to limit the number of reservation requests a user van send.
 
   - Password Reset: a user will be able to reset their password, in case forgotten
 
@@ -457,6 +457,7 @@ Date did not prefill automatically with future date(tomorrow) as intended:
 <details>
 <summary><strong>Show Development</strong></summary>
 <br>
+
 This project was developed through Gitpod, using the template provided by Code Institute. Every step was documented and pushed thoroughly via GitHub. These are the steps:
 
 Log into [GitHub](https://github.com/)
@@ -474,10 +475,11 @@ Open Code Institute [Template](https://github.com/Code-Institute-Org/gitpod-full
 <details>
 <summary><strong>Show Deployment</strong></summary>
 <br>
+
 The site was created using [GitHub](https://github.com/). Here are the speps taken:
 
 - Sign in to GitHub
-- Code Institute Template was used by clicking on 'Use this template'
+- Code Institute Template was used by clicking on 'Use this template' as described above
 - Once the repo is created need to install Django and relevant libraries:
 
 ### Packages:

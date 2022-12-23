@@ -7,6 +7,12 @@ from datetime import datetime, date, timedelta  # for date validation
 
 
 class ReservationForm(forms.ModelForm):
+    '''Reservation form class that shows form fields,
+       with relative vidgets and labels'''
+
+    phone = forms.IntegerField(widget=forms.NumberInput
+                               (attrs={'placeholder': '00123456789'}),
+                               )
 
     class Meta:
         model = MakeReservation

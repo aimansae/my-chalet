@@ -13,7 +13,7 @@
                     <p class="blockquote my-2">Selected chalet: {{reservations.selected_chalet.name}}
                         {% csrf_token %}
                         {{ form.as_p }}
-                    <p class="blockquote mb-4">Price: {{reservations.selected_chalet.price}}</p>
+                    <p class="blockquote mb-4">Price:€ {{reservations.selected_chalet.price}}</p>
                     <button type="submit" class="btn btn-info">Update</button>
                 </form>
             </div>

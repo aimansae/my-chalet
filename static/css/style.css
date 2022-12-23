@@ -90,7 +90,6 @@ footer a {
 
 .change:hover {
     background-color: #299b1df0;
-
 }
 
 .delete {
@@ -102,14 +101,13 @@ footer a {
 .delete:hover {
     background-color: #f10741;
     ;
-
-
 }
 
 /* for errorlist message */
 
 ul.errorlist {
     background-color: #c53a3aed;
+    list-style-type: none;
 }
 
 
